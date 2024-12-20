@@ -1,0 +1,7 @@
+C:\Users\KGA\Desktop\콘솔 프로젝트\Console-Project\Console Project\bin\Debug\Console Project.exe.config
+C:\Users\KGA\Desktop\콘솔 프로젝트\Console-Project\Console Project\bin\Debug\Console Project.exe
+C:\Users\KGA\Desktop\콘솔 프로젝트\Console-Project\Console Project\bin\Debug\Console Project.pdb
+C:\Users\KGA\Desktop\콘솔 프로젝트\Console-Project\Console Project\obj\Debug\Console Project.csproj.AssemblyReference.cache
+C:\Users\KGA\Desktop\콘솔 프로젝트\Console-Project\Console Project\obj\Debug\Console Project.csproj.CoreCompileInputs.cache
+C:\Users\KGA\Desktop\콘솔 프로젝트\Console-Project\Console Project\obj\Debug\Console Project.exe
+C:\Users\KGA\Desktop\콘솔 프로젝트\Console-Project\Console Project\obj\Debug\Console Project.pdb

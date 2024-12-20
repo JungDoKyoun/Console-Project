@@ -10,6 +10,10 @@ namespace Console_Project
     {
         static void Main(string[] args)
         {
+            Player myPlayer = new Player(10, 10, 10, 10, PlayerSkill.non, 10000);
+            myPlayer.CreateInven();
+            myPlayer.AddItem();
+            myPlayer.ShowPlayerInven();
         }
     }
 }
