@@ -327,16 +327,62 @@ namespace Console_Project
 
         public void MoveForward(Map map)
         {
-            if (map.TileTypes[PlayerPosX, PlayerPosY] == Map.TileType.Wall)
+            if (map.TileTypes[PlayerPosX, PlayerPosY + 1] == Map.TileType.Wall)
             {
                 PlayerPosX = PlayerPosX;
                 PlayerPosY = PlayerPosY;
             }
-            else if(map.TileTypes[PlayerPosX, PlayerPosY] == Map.TileType.Empty)
+            else if(map.TileTypes[PlayerPosX, PlayerPosY + 1] == Map.TileType.Empty)
             {
+                map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Empty;
                 PlayerPosY++;
+                map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Player;
             }
         }
 
+        public void MoveBackward(Map map)
+        {
+            if (map.TileTypes[PlayerPosX, PlayerPosY - 1] == Map.TileType.Wall)
+            {
+                PlayerPosX = PlayerPosX;
+                PlayerPosY = PlayerPosY;
+            }
+            else if (map.TileTypes[PlayerPosX, PlayerPosY - 1] == Map.TileType.Empty)
+            {
+                map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Empty;
+                PlayerPosY--;
+                map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Player;
+            }
+        }
+
+        public void MoveRight(Map map)
+        {
+            if (map.TileTypes[PlayerPosX + 1, PlayerPosY] == Map.TileType.Wall)
+            {
+                PlayerPosX = PlayerPosX;
+                PlayerPosY = PlayerPosY;
+            }
+            else if (map.TileTypes[PlayerPosX + 1, PlayerPosY] == Map.TileType.Empty)
+            {
+                map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Empty;
+                PlayerPosX++;
+                map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Player;
+            }
+        }
+
+        public void MoveLeft(Map map)
+        {
+            if (map.TileTypes[PlayerPosX - 1, PlayerPosY] == Map.TileType.Wall)
+            {
+                PlayerPosX = PlayerPosX;
+                PlayerPosY = PlayerPosY;
+            }
+            else if (map.TileTypes[PlayerPosX - 1, PlayerPosY] == Map.TileType.Empty)
+            {
+                map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Empty;
+                PlayerPosX--;
+                map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Player;
+            }
+        }
     }
 }

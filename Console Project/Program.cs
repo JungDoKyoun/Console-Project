@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,23 +12,40 @@ namespace Console_Project
         static void Main(string[] args)
         {
             Player myPlayer = new Player(10, 10, 10, 10);
+            Monster monster = new NomalMonster();
+            Map map = new Map();
             ShopNPC shopNPC = new ShopNPC();
             NPC[] npc = new NPC[] { shopNPC };
-            Map map = new Map();
-            ConsoleKeyInfo temp;
+            ConsoleKeyInfo inputKey;
+            map.Initialize(10);
+            myPlayer.SetPlayerPos();
+            Console.CursorVisible = false;
+
             while (true)
             {
-                map.Initialize(10);
-                myPlayer.SetPlayerPos();
-                if (Console.KeyAvailable) //키가 눌렸을때만 돌게 됨
+                if (Console.KeyAvailable) 
                 {
-                    temp = Console.ReadKey(true);
-                    if (temp.Key == ConsoleKey.W)
+                    inputKey = Console.ReadKey(true);
+                    if (inputKey.Key == ConsoleKey.UpArrow)
                     {
                         myPlayer.MoveForward(map);
                     }
+                    else if(inputKey.Key == ConsoleKey.DownArrow)
+                    {
+                        myPlayer.MoveBackward(map);
+                    }
+                    else if(inputKey.Key == ConsoleKey.RightArrow)
+                    {
+                        myPlayer.MoveRight(map);
+                    }
+                    else if (inputKey.Key == ConsoleKey.LeftArrow)
+                    {
+                        myPlayer.MoveLeft(map);
+                    }
                 }
-                map.Render(myPlayer);
+                monster.SetMonster(map);
+                map.Render(myPlayer, monster);
+                   
             }
         }
     }

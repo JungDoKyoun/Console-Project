@@ -12,7 +12,7 @@ namespace Console_Project
         public int Size { get; set; }
         const char RECTANGLE = '■';
         const char Player = '★';
-        const char Monster = 'M';
+        const char Monster = '◈';
 
         public enum TileType
         {
@@ -57,7 +57,7 @@ namespace Console_Project
             }
         }
 
-        public void Render(Player player)
+        public void Render(Player player, Monster monster)
         {
             ConsoleColor prevColor = Console.ForegroundColor;
 
@@ -70,14 +70,19 @@ namespace Console_Project
                         Console.ForegroundColor = MapColor(TileType.Player);
                         Console.Write(Player);
                     }
+                    else if(y == monster.MonsterPosY && x == monster.MonsterPosX)
+                    {
+                        Console.ForegroundColor = MapColor(TileType.Monster);
+                        Console.Write(Monster);
+                    }
                     else
                     {
-                        if(TileType.Empty == TileTypes[y, x])
+                        if(TileType.Empty == TileTypes[x, y])
                         {
                             Console.ForegroundColor = MapColor(TileType.Empty);
                             Console.Write(RECTANGLE);
                         }
-                        else if(TileType.Wall == TileTypes[y, x])
+                        else if(TileType.Wall == TileTypes[x, y])
                         {
                             Console.ForegroundColor = MapColor(TileType.Wall);
                             Console.Write(RECTANGLE);
@@ -87,7 +92,6 @@ namespace Console_Project
                 Console.WriteLine();
             }
             Console.SetCursorPosition(0, 0);
-            Console.ForegroundColor = prevColor;
         }
     }
 }
