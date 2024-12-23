@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Console_Project
@@ -72,7 +73,7 @@ namespace Console_Project
                 }
             }
             Console.WriteLine();
-            Console.WriteLine(PlayerMoney);
+            Console.WriteLine($"남은 돈 : {PlayerMoney}");
             Console.WriteLine("----------------------------------------------");
         }
 
@@ -102,14 +103,14 @@ namespace Console_Project
                 }
             }
             Console.WriteLine();
-            Console.WriteLine(PlayerMoney);
+            Console.WriteLine($"남은 돈 : {PlayerMoney}");
             Console.WriteLine("----------------------------------------------");
         }
 
         public void ShowEquipmentSet()
         {
             Console.WriteLine("----------------------------------------------");
-            Console.WriteLine($"1. 무기 : {_weaponItem[0].ItemName}\t2.방어구 : {_armorItem[0].ItemName}");
+            Console.WriteLine($"1. 무기 : {_weaponItem[0]?.ItemName}\t2.방어구 : {_armorItem[0]?.ItemName}");
             Console.WriteLine("----------------------------------------------");
         }
 
@@ -185,6 +186,12 @@ namespace Console_Project
             }
         }
 
+        public void ThrowItem(int inputNum)
+        {
+            Console.WriteLine($"{inven[inputNum - 1].ItemName}을 버렸습니다");
+            inven.Remove(inven[inputNum - 1]);
+        }
+
         public void EquipmentSet()
         {
             while(true)
@@ -195,31 +202,34 @@ namespace Console_Project
                 Console.WriteLine("--------------------------------------");
                 myKey = Console.ReadKey(true);
 
-                if(inven.Count == 0)
-                {
-                    Console.WriteLine("아이템창이 비어있습니다");
-                }
-                else if(myKey.Key == ConsoleKey.D0 || myKey.Key == ConsoleKey.NumPad0)
+                if(myKey.Key == ConsoleKey.D0 || myKey.Key == ConsoleKey.NumPad0)
                 {
                     break;
                 }
                 else if(myKey.Key == ConsoleKey.D1||myKey.Key == ConsoleKey.NumPad1)
                 {
-                    Console.WriteLine("장비할 아이템을 선택해주세요(0번을 누르면 이전창으로 돌아갑니다)");
-                    ShowPlayerInven();
-                    bool isCorrect = int.TryParse(Console.ReadLine(), out int inputNum);
+                    if (inven.Count == 0)
                     {
-                        if (isCorrect == false || inputNum > inven.Count)
+                        Console.WriteLine("아이템창이 비어있습니다");
+                    }
+                    else
+                    {
+                        Console.WriteLine("장비할 아이템을 선택해주세요(0번을 누르면 이전창으로 돌아갑니다)");
+                        ShowPlayerInven();
+                        bool isCorrect = int.TryParse(Console.ReadLine(), out int inputNum);
                         {
-                            Console.WriteLine("아이템중 하나를 선택하여 주세요");
-                        }
-                        else if(inputNum == 0)
-                        {
-                            continue;
-                        }
-                        else
-                        {
-                            Equipment(inven[inputNum - 1]);
+                            if (isCorrect == false || inputNum > inven.Count)
+                            {
+                                Console.WriteLine("아이템중 하나를 선택하여 주세요");
+                            }
+                            else if(inputNum == 0)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                Equipment(inven[inputNum - 1]);
+                            }
                         }
                     }
                 }
@@ -228,23 +238,62 @@ namespace Console_Project
                     Console.WriteLine("해체할 아이템을 선택해주세요(0번을 누르면 이전창으로 돌아갑니다)");
                     ShowEquipmentSet();
                     bool isCorrect = int.TryParse(Console.ReadLine(), out int inputNum);
-                    if (isCorrect == false || inputNum > inven.Count)
+                    if (isCorrect == false || inputNum > 2)
                     {
                         Console.WriteLine("아이템중 하나를 선택하여 주세요");
                     }
                     else if(inputNum == 1)
                     {
-                        DisEquipment(_weaponItem[0]);
+                        if (_weaponItem[0] == null)
+                        {
+                            Console.WriteLine("무기를 착용하지 않았습니다");
+                        }
+                        else
+                        {
+                            DisEquipment(_weaponItem[0]);
+                        }
                     }
                     else if(inputNum == 2)
                     {
-                        DisEquipment(_armorItem[0]);
+                        if (_armorItem[0] == null)
+                        {
+                            Console.WriteLine("방어구를 착용하지 않았습니다");
+                        }
+                        else
+                        {
+                            DisEquipment(_armorItem[0]);
+                        }
                     }
                 }
                 else if (myKey.Key == ConsoleKey.D3 || myKey.Key == ConsoleKey.NumPad3)
                 {
-
+                    if (inven.Count == 0)
+                    {
+                        Console.WriteLine("아이템창이 비어있습니다");
+                    }
+                    else
+                    {
+                        Console.WriteLine("버릴 아이템을 선택해주세요(0번을 누르면 이전창으로 돌아갑니다)");
+                        ShowPlayerInven();
+                        bool isCorrect = int.TryParse(Console.ReadLine(), out int inputNum);
+                        {
+                            if (isCorrect == false || inputNum > inven.Count)
+                            {
+                                Console.WriteLine("아이템중 하나를 선택하여 주세요");
+                            }
+                            else if (inputNum == 0)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                ThrowItem(inputNum);
+                            }
+                        }
+                    }
                 }
+                Thread.Sleep(1000);
+                Console.Clear();
             }
         }
     }

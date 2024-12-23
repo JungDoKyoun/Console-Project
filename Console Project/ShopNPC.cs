@@ -69,11 +69,17 @@ namespace Console_Project
                 {
                     Console.WriteLine("무엇을 구입하시겠습니까??");
                     ShowShopItem();
-                    Console.WriteLine("구입할 아이템의 번호를 고르세요");
+                    Console.WriteLine("구입할 아이템의 번호를 고르세요 (0번을 누르면 이전화면으로 돌아갑니다).");
                     bool isCorrect = int.TryParse(Console.ReadLine(), out int inputNum);
                     if(isCorrect == false || inputNum > ShopItems.Count)
                     {
                         Console.WriteLine("아이템 번호를 입력하고 엔터를 누르세요");
+                    }
+                    else if(inputNum == 0)
+                    {
+                        Thread.Sleep(1000);
+                        Console.Clear();
+                        continue;
                     }
                     else if(player.PlayerMoney < ShopItems[inputNum - 1].ItemPrice)
                     {
@@ -90,11 +96,17 @@ namespace Console_Project
                 {
                     Console.WriteLine("무엇을 판매하시겠습니까??");
                     player.ShowPlayerSellInven();
-                    Console.WriteLine("판매할 아이템의 번호를 고르세요");
+                    Console.WriteLine("판매할 아이템의 번호를 고르세요 (0번을 누르면 이전화면으로 돌아갑니다).");
                     bool isCorrect = int.TryParse(Console.ReadLine(), out int inputNum);
                     if (isCorrect == false || inputNum > ShopItems.Count)
                     {
                         Console.WriteLine("아이템 번호를 입력하고 엔터를 누르세요");
+                    }
+                    else if (inputNum == 0)
+                    {
+                        Thread.Sleep(1000);
+                        Console.Clear();
+                        continue;
                     }
                     else
                     {
