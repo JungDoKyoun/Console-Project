@@ -75,6 +75,10 @@ namespace Console_Project
                     {
                         Console.WriteLine("아이템 번호를 입력하고 엔터를 누르세요");
                     }
+                    else if(player.PlayerMoney < ShopItems[inputNum - 1].ItemPrice)
+                    {
+                        Console.WriteLine("지불할 돈이 모자릅니다");
+                    }
                     else
                     {
                         player.BuyItem(ShopItems[inputNum - 1]);

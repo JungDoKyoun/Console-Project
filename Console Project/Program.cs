@@ -10,7 +10,7 @@ namespace Console_Project
     {
         static void Main(string[] args)
         {
-            Player myPlayer = new Player(10, 10, 10, 10, 10000);
+            Player myPlayer = new Player(10, 10, 10, 10, 0);
             ShopNPC shopNPC = new ShopNPC();
             NPC[] npc = new NPC[] { shopNPC };
             myPlayer.CreateInven();
@@ -18,8 +18,7 @@ namespace Console_Project
             shopNPC.AddShopItem();
             shopNPC.Interact(myPlayer);
             myPlayer.ShowPlayerInven();
-            shopNPC.Interact(myPlayer);
-            myPlayer.ShowPlayerInven();
+            myPlayer.EquipmentSet();
         }
     }
 }
