@@ -15,6 +15,8 @@ namespace Console_Project
     internal class Player
     {
         public string Name { get; set; }
+        public int PlayerLevel { get; set; }
+        public int PlayerExp { get; set; }
         public int HP { get; set; }
         public int MP { get; set; }
         public int Damage { get; set; }
@@ -29,18 +31,23 @@ namespace Console_Project
         Item[] _armorItem = new Item[1];
         ConsoleKeyInfo myKey;
 
-        public Player(int hp, int mp, int damage, int defensivePower, int playerMoney)
+        public Player(int hp, int mp, int damage, int defensivePower)
         {
+            PlayerLevel = 1;
+            PlayerExp = 0;
             HP = hp;
             MP = mp;
             Damage = damage;
             DefensivePower = defensivePower;
-            PlayerMoney = playerMoney;
+            PlayerMoney = 100;
             _weaponItem[0] = new Item("낡은 장검", 10, 0, ItemType.Weapon);
             _armorItem[0] = new Item("낡은 갑옷", 5, 0, ItemType.Armor);
-            PlayerPosX = 0;
-            PlayerPosY = 0;
+        }
 
+        public void SetPlayerPos()
+        {
+            PlayerPosX = 1;
+            PlayerPosY = 1;
         }
         public void CreateInven()
         {
@@ -296,5 +303,28 @@ namespace Console_Project
                 Console.Clear();
             }
         }
+
+        public void PlayerLveleUp()
+        {
+            Console.WriteLine("레벨업!!");
+            if(PlayerExp == 100)
+            {
+                PlayerLevel++;
+                PlayerExp = 0;
+            }
+            else if(PlayerExp > 100)
+            {
+                int rest = PlayerExp - 100;
+                PlayerLevel++;
+                PlayerExp = 0 + rest;
+            }
+            HP = 100;
+            MP = 100;
+            Damage += 10;
+            DefensivePower += 5;
+        }
+
+
+
     }
 }
