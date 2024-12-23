@@ -13,12 +13,10 @@ namespace Console_Project
             Player myPlayer = new Player(10, 10, 10, 10);
             ShopNPC shopNPC = new ShopNPC();
             NPC[] npc = new NPC[] { shopNPC };
-            myPlayer.CreateInven();
-            shopNPC.CreateShopInven();
-            shopNPC.AddShopItem();
-            shopNPC.Interact(myPlayer);
-            myPlayer.ShowPlayerInven();
-            myPlayer.EquipmentSet();
+            Map map = new Map();
+            map.Initialize(10);
+            myPlayer.SetPlayerPos();
+            map.Render(myPlayer);
         }
     }
 }

@@ -324,7 +324,7 @@ namespace Console_Project
             DefensivePower += 5;
         }
 
-
+        
 
     }
 }

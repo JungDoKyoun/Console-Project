@@ -47,15 +47,37 @@ namespace Console_Project
                 {
                     if(x == 0 || x == _size - 1 || y == 0 || y == _size - 1)
                     {
-                        _tile[x, y] = TileType.Wall;
+                        _tile[y, x] = TileType.Wall;
                     }
                     else
                     {
-                        _tile[x, y] = TileType.Empty;
+                        _tile[y, x] = TileType.Empty;
                     }
                 }
             }
         }
 
+        public void Render(Player player)
+        {
+            ConsoleColor prevColor = Console.ForegroundColor;
+
+            for(int y = 0; y < _size; y++)
+            {
+                for(int x = 0; x < _size; x++)
+                {
+                    if (y == player.PlayerPosY && x == player.PlayerPosX)
+                    {
+                        Console.ForegroundColor = MapColor(_tile[y, x]);
+                        Console.Write(Player);
+                    }
+                    else
+                    {
+                        Console.Write(RECTANGLE);
+                    }
+                }
+                Console.WriteLine();
+            }
+            Console.ForegroundColor = prevColor;
+        }
     }
 }
