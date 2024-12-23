@@ -67,7 +67,7 @@ namespace Console_Project
                 {
                     if (y == player.PlayerPosY && x == player.PlayerPosX)
                     {
-                        Console.ForegroundColor = MapColor(_tile[y, x]);
+                        Console.ForegroundColor = MapColor(TileType.Player);
                         Console.Write(Player);
                     }
                     else
