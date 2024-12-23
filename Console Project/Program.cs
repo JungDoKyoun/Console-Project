@@ -14,9 +14,13 @@ namespace Console_Project
             ShopNPC shopNPC = new ShopNPC();
             NPC[] npc = new NPC[] { shopNPC };
             Map map = new Map();
-            map.Initialize(10);
-            myPlayer.SetPlayerPos();
-            map.Render(myPlayer);
+            while(true)
+            {
+                map.Initialize(10);
+                myPlayer.SetPlayerPos();
+                map.Render(myPlayer);
+
+            }
         }
     }
 }

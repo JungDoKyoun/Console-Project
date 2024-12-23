@@ -11,7 +11,7 @@ namespace Console_Project
         public TileType[,] _tile;
         public int _size;
         const char RECTANGLE = '■';
-        const char Player = 'P';
+        const char Player = '★';
         const char Monster = 'M';
 
         public enum TileType
@@ -77,6 +77,7 @@ namespace Console_Project
                 }
                 Console.WriteLine();
             }
+            Console.SetCursorPosition(0, 0);
             Console.ForegroundColor = prevColor;
         }
     }
