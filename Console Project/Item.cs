@@ -15,11 +15,13 @@ namespace Console_Project
         public string ItemName { get; set; }
         public int ItemEffect { get; set; }
         public ItemType ItemType { get; set; }
+        public int ItemPrice { get; set; }
 
-        public Item(string itemName, int itemEffect, ItemType itemType)
+        public Item(string itemName, int itemEffect, int itemPrice,ItemType itemType)
         {
             ItemName = itemName;
             ItemEffect = itemEffect;
+            ItemPrice = itemPrice;
             ItemType = itemType;
         }
     }

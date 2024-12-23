@@ -10,9 +10,15 @@ namespace Console_Project
     {
         static void Main(string[] args)
         {
-            Player myPlayer = new Player(10, 10, 10, 10, PlayerSkill.non, 10000);
+            Player myPlayer = new Player(10, 10, 10, 10, 10000);
+            ShopNPC shopNPC = new ShopNPC();
+            NPC[] npc = new NPC[] { shopNPC };
             myPlayer.CreateInven();
-            myPlayer.AddItem();
+            shopNPC.CreateShopInven();
+            shopNPC.AddShopItem();
+            shopNPC.Interact(myPlayer);
+            myPlayer.ShowPlayerInven();
+            shopNPC.Interact(myPlayer);
             myPlayer.ShowPlayerInven();
         }
     }

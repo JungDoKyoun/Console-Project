@@ -8,7 +8,7 @@ namespace Console_Project
 {
     enum PlayerSkill
     {
-        non, Blow, 
+        Blow, 
     }
     internal class Player
     {
@@ -24,13 +24,12 @@ namespace Console_Project
         public int PlayerPosY { get; set; }
         List<Item> inven;
 
-        public Player(int hp, int mp, int damage, int defensivePower, PlayerSkill playerSkill, int playerMoney)
+        public Player(int hp, int mp, int damage, int defensivePower, int playerMoney)
         {
             HP = hp;
             MP = mp;
             Damage = damage;
             DefensivePower = defensivePower;
-            PlayerSkill = playerSkill;
             PlayerMoney = playerMoney;
             PlayerPosX = 0;
             PlayerPosY = 0;
@@ -51,19 +50,19 @@ namespace Console_Project
             {
                 Console.WriteLine("인벤토리가 비어있습니다");
             }
-            foreach(Item item in inven)
+            for(int i = 0; i < inven.Count; i++)
             {
-                if(item.ItemType == ItemType.Weapon )
+                if (inven[i].ItemType == ItemType.Weapon )
                 {
-                    Console.WriteLine($"이름: {item.ItemName}\t공격력: {item.ItemEffect}\t아이템 종류: 무기");
+                    Console.WriteLine($"[{i}]. 이름: {inven[i].ItemName}\t공격력: {inven[i].ItemEffect}\t아이템 가격 : {inven[i].ItemPrice}\t아이템 종류: 무기");
                 }
-                if (item.ItemType == ItemType.Armor)
+                if (inven[i].ItemType == ItemType.Armor)
                 {
-                    Console.WriteLine($"이름: {item.ItemName}\t방어력: {item.ItemEffect}\t아이템 종류: 방어구");
+                    Console.WriteLine($"[{i}]. 이름: {inven[i].ItemName}\t방어력: {inven[i].ItemEffect}\t아이템 가격 : {inven[i].ItemPrice}\t아이템 종류: 방어구");
                 }
-                if (item.ItemType == ItemType.Usable)
+                if (inven[i].ItemType == ItemType.Usable)
                 {
-                    Console.WriteLine($"이름: {item.ItemName}\t회복력: {item.ItemEffect}\t아이템 종류: 물약");
+                    Console.WriteLine($"[{i}]. 이름: {inven[i].ItemName}\t회복력: {inven[i].ItemEffect}\t아이템 가격 : {inven[i].ItemPrice}\t아이템 종류: 물약");
                 }
             }
             Console.WriteLine();
@@ -71,11 +70,44 @@ namespace Console_Project
             Console.WriteLine("----------------------------------------------");
         }
 
-        public void AddItem()
+        public void ShowPlayerSellInven()
         {
-            inven.Add(new Item("검", 10, ItemType.Weapon));
-            inven.Add(new Item("갑옷", 10, ItemType.Armor));
-            inven.Add(new Item("빨간물약", 10, ItemType.Usable));
+            Console.WriteLine("현재 인벤토리 항목");
+            Console.WriteLine("----------------------------------------------");
+
+
+            if (inven.Count == 0)
+            {
+                Console.WriteLine("인벤토리가 비어있습니다");
+            }
+            for (int i = 0; i < inven.Count; i++)
+            {
+                if (inven[i].ItemType == ItemType.Weapon)
+                {
+                    Console.WriteLine($"[{i + 1}]. 이름: {inven[i].ItemName}\t공격력: {inven[i].ItemEffect}\t아이템 가격 : {inven[i].ItemPrice / 2}\t아이템 종류: 무기");
+                }
+                if (inven[i].ItemType == ItemType.Armor)
+                {
+                    Console.WriteLine($"[{i + 1}]. 이름: {inven[i].ItemName}\t방어력: {inven[i].ItemEffect}\t아이템 가격 : {inven[i].ItemPrice / 2}\t아이템 종류: 방어구");
+                }
+                if (inven[i].ItemType == ItemType.Usable)
+                {
+                    Console.WriteLine($"[{i + 1}]. 이름: {inven[i].ItemName}\t회복력: {inven[i].ItemEffect}\t아이템 가격 : {inven[i].ItemPrice / 2}\t아이템 종류: 물약");
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine(PlayerMoney);
+            Console.WriteLine("----------------------------------------------");
+        }
+
+        public void BuyItem(Item item)
+        {
+            inven.Add(item);
+        }
+
+        public void SellItem(Item item)
+        {
+            inven.Remove(item);
         }
     }
 }
