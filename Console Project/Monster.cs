@@ -10,7 +10,7 @@ namespace Console_Project
     {
 
     }
-    internal class Monster
+    abstract class Monster
     {
         public string MonsterName { get; set; }
         public int MonsterHP{ get; set; }

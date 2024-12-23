@@ -324,7 +324,10 @@ namespace Console_Project
             DefensivePower += 5;
         }
 
-        
+        public void MoveForward()
+        {
+            if(PlayerPosX == )
+        }
 
     }
 }

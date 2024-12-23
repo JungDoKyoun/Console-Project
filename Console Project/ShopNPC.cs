@@ -47,7 +47,7 @@ namespace Console_Project
             Console.WriteLine("--------------------------------------");
         }
 
-        public void Interact(Player player)
+        public override void Interact(Player player)
         {
             while(true)
             {
