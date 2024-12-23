@@ -8,8 +8,8 @@ namespace Console_Project
 {
     internal class Map
     {
-        public TileType[,] _tile;
-        public int _size;
+        public TileType[,] TileTypes { get; set; }
+        public int Size { get; set; }
         const char RECTANGLE = '■';
         const char Player = '★';
         const char Monster = 'M';
@@ -38,20 +38,20 @@ namespace Console_Project
 
         public void Initialize(int size)
         {
-            _tile = new TileType[size, size];
-            _size = size;
+            TileTypes = new TileType[size, size];
+            Size = size;
 
-            for(int y = 0; y < _size; y++)
+            for(int y = 0; y < Size; y++)
             {
-                for(int x = 0; x < _size; x++)
+                for(int x = 0; x < Size; x++)
                 {
-                    if(x == 0 || x == _size - 1 || y == 0 || y == _size - 1)
+                    if(x == 0 || x == Size - 1 || y == 0 || y == Size - 1)
                     {
-                        _tile[y, x] = TileType.Wall;
+                        TileTypes[y, x] = TileType.Wall;
                     }
                     else
                     {
-                        _tile[y, x] = TileType.Empty;
+                        TileTypes[y, x] = TileType.Empty;
                     }
                 }
             }
@@ -61,9 +61,9 @@ namespace Console_Project
         {
             ConsoleColor prevColor = Console.ForegroundColor;
 
-            for(int y = 0; y < _size; y++)
+            for(int y = 0; y < Size; y++)
             {
-                for(int x = 0; x < _size; x++)
+                for(int x = 0; x < Size; x++)
                 {
                     if (y == player.PlayerPosY && x == player.PlayerPosX)
                     {
@@ -72,7 +72,16 @@ namespace Console_Project
                     }
                     else
                     {
-                        Console.Write(RECTANGLE);
+                        if(TileType.Empty == TileTypes[y, x])
+                        {
+                            Console.ForegroundColor = MapColor(TileType.Empty);
+                            Console.Write(RECTANGLE);
+                        }
+                        else if(TileType.Wall == TileTypes[y, x])
+                        {
+                            Console.ForegroundColor = MapColor(TileType.Wall);
+                            Console.Write(RECTANGLE);
+                        }
                     }
                 }
                 Console.WriteLine();

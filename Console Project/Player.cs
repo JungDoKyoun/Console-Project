@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -324,9 +325,17 @@ namespace Console_Project
             DefensivePower += 5;
         }
 
-        public void MoveForward()
+        public void MoveForward(Map map)
         {
-            if(PlayerPosX == )
+            if (map.TileTypes[PlayerPosX, PlayerPosY] == Map.TileType.Wall)
+            {
+                PlayerPosX = PlayerPosX;
+                PlayerPosY = PlayerPosY;
+            }
+            else if(map.TileTypes[PlayerPosX, PlayerPosY] == Map.TileType.Empty)
+            {
+                PlayerPosY++;
+            }
         }
 
     }
