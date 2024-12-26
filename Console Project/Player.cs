@@ -72,7 +72,11 @@ namespace Console_Project
                 {
                     Console.WriteLine($"[{i + 1}]. 이름: {inven[i].ItemName}\t방어력: {inven[i].ItemEffect}\t아이템 가격 : {inven[i].ItemPrice}\t아이템 종류: 방어구");
                 }
-                if (inven[i].ItemType == ItemType.Usable)
+                if (inven[i].ItemType == ItemType.UsableHP)
+                {
+                    Console.WriteLine($"[{i + 1}]. 이름: {inven[i].ItemName}\t회복력: {inven[i].ItemEffect}\t아이템 가격 : {inven[i].ItemPrice}\t아이템 종류: 물약");
+                }
+                if (inven[i].ItemType == ItemType.UsableMP)
                 {
                     Console.WriteLine($"[{i + 1}]. 이름: {inven[i].ItemName}\t회복력: {inven[i].ItemEffect}\t아이템 가격 : {inven[i].ItemPrice}\t아이템 종류: 물약");
                 }
@@ -102,9 +106,13 @@ namespace Console_Project
                 {
                     Console.WriteLine($"[{i + 1}]. 이름: {inven[i].ItemName}\t방어력: {inven[i].ItemEffect}\t아이템 가격 : {inven[i].ItemPrice / 2}\t아이템 종류: 방어구");
                 }
-                if (inven[i].ItemType == ItemType.Usable)
+                if (inven[i].ItemType == ItemType.UsableHP)
                 {
                     Console.WriteLine($"[{i + 1}]. 이름: {inven[i].ItemName}\t회복력: {inven[i].ItemEffect}\t아이템 가격 : {inven[i].ItemPrice / 2}\t아이템 종류: 물약");
+                }
+                if (inven[i].ItemType == ItemType.UsableMP)
+                {
+                    Console.WriteLine($"[{i + 1}]. 이름: {inven[i].ItemName}\t회복력: {inven[i].ItemEffect}\t아이템 가격 : {inven[i].ItemPrice}\t아이템 종류: 물약");
                 }
             }
             Console.WriteLine();
@@ -339,6 +347,45 @@ namespace Console_Project
             DefensivePower += 5;
         }
 
+        public void UseUsableItem()
+        {
+            List<Item> usableitem = new List<Item>();
+            for(int i = 0; i < inven.Count; i++)
+            {
+                if (inven[i].ItemType == ItemType.UsableHP || inven[i].ItemType == ItemType.UsableMP)
+                {
+                    usableitem.Add(inven[i]);
+                }
+            }
+            if(usableitem.Count == 0)
+            {
+                Console.WriteLine("사용할 수 있는 아이템이 없습니다");
+            }
+            else if(usableitem.Count != 0)
+            {
+                Console.WriteLine("사용할 아이템을 선택하세요");
+                for (int i = 0; i < usableitem.Count; i++)
+                {
+                    Console.WriteLine($"[{i + 1}]. {usableitem[i].ItemName}\t회복량 : {usableitem[i].ItemEffect}\t가격 : {usableitem[i].ItemPrice}");
+                }
+                bool isCorrect = int.TryParse(Console.ReadLine(), out int inputNum);
+                if (usableitem[inputNum] != null)
+                {
+                    if (usableitem[inputNum].ItemType == ItemType.UsableHP)
+                    {
+                        HP += usableitem[inputNum].ItemEffect;
+                        Console.WriteLine($"HP가 {usableitem[inputNum].ItemEffect}만큼 회복되었습니다");
+                    }
+                    else if (usableitem[inputNum].ItemType == ItemType.UsableMP)
+                    {
+                        MP += usableitem[inputNum].ItemEffect;
+                        Console.WriteLine($"MP가 {usableitem[inputNum].ItemEffect}만큼 회복되었습니다");
+                    }
+                }
+            }
+            
+            
+        }
         public void MoveForward(Map map)
         {
             if (map.TileTypes[PlayerPosX, PlayerPosY + 1] == Map.TileType.Wall)

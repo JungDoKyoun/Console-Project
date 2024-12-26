@@ -39,9 +39,13 @@ namespace Console_Project
                 {
                     Console.WriteLine($"{i + 1}. {ShopItems[i].ItemName}\t방어력 : {ShopItems[i].ItemEffect}\t아이템 가격 : {ShopItems[i].ItemPrice}\t아이템 타입 : 방어구");
                 }
-                else if (ShopItems[i].ItemType == ItemType.Usable)
+                else if (ShopItems[i].ItemType == ItemType.UsableHP)
                 {
                     Console.WriteLine($"[{i + 1}]. {ShopItems[i].ItemName}\t회복력 : {ShopItems[i].ItemEffect}\t아이템 가격 : {ShopItems[i].ItemPrice}\t아이템 타입 : 물약");
+                }
+                else if (ShopItems[i].ItemType == ItemType.UsableMP)
+                {
+                    Console.WriteLine($"[{i + 1}]. 이름: {ShopItems[i].ItemName}\t회복력: {ShopItems[i].ItemEffect}\t아이템 가격 : {ShopItems[i].ItemPrice}\t아이템 종류: 물약");
                 }
             }
             Console.WriteLine("--------------------------------------");

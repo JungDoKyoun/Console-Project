@@ -20,9 +20,10 @@ namespace Console_Project
             map.Initialize(10);
             myPlayer.SetPlayerPos();
             Console.CursorVisible = false;
+            myPlayer.CreateInven();
+            myPlayer.CreatePlayerSkillSlot();
             BattleSystem battle = new BattleSystem();
-
-            battle.PlayerChooseAttack(myPlayer, monster);
+            battle.NomalMonsterBattle(myPlayer, monster);
 
             while (true)
             {

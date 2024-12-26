@@ -9,6 +9,21 @@ namespace Console_Project
 {
     internal class BattleSystem
     {
+        bool isRun = false;
+        public void NomalMonsterBattle(Player player, Monster monster)
+        {
+            while(true)
+            {
+                PlayerChooseAttack(player, monster);
+                if(isRun == true)
+                {
+                    break;
+                }
+                NomalMonsterAttackPlayer(player, monster);
+            }
+            
+
+        }
         public void PlayerChooseAttack(Player player, Monster monster)
         {
             while(true)
@@ -16,8 +31,9 @@ namespace Console_Project
                 Console.WriteLine($"{monster.MonsterName}을 만났다!!!");
                 player.PrintBattlePlayerInfo();
                 Console.WriteLine();
-                monster.PrintBattleMonsterInfo();
-                Console.WriteLine("취할 행동을 선택하여 주세요");
+                monster.();
+                Console.WriteLine("행동을 선택하여 주세요");
+                Console.WriteLine();
                 Console.WriteLine("1. 일반공격\t2. 스킬사용\t3. 아이템사용\t4. 도주");
                 bool isCorrect = int.TryParse(Console.ReadLine(), out int inputNum);
 
@@ -28,15 +44,25 @@ namespace Console_Project
                 else if(inputNum == 2)
                 {
                     PlayerUseSkill(player, monster);
-                    break;
                 }
                 else if (inputNum == 3)
                 {
-                    break;
+                    player.UseUsableItem();
                 }
                 else if (inputNum == 4)
                 {
-                    break;
+                    Random random = new Random();
+                    int Num = random.Next(0, 2);
+                    if (Num == 0)
+                    {
+                        Console.WriteLine("도망에 성공했습니다");
+                        isRun = true;
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("도망에 실패했습니다");
+                    }
                 }
                 else
                 {
@@ -58,18 +84,18 @@ namespace Console_Project
         {
             while(true)
             {
+                if (player.PlayerSkills.Count == 0)
+                {
+                    Console.WriteLine("사용 할 수 있는 스킬이 없습니다");
+                    break;
+                }
                 Console.WriteLine("사용할 스킬을 선택하세요 (0번을 누르면 이전 화면으로 넘어갑니다)");
                 Console.WriteLine();
                 player.PrintPlayerSkill();
                 Console.WriteLine();
                 bool isCorrect = int.TryParse(Console.ReadLine(), out int inputNum);
 
-                if (player.PlayerSkills.Count == 0)
-                {
-                    Console.WriteLine("사용 할 수 있는 스킬이 없습니다");
-                    break;
-                }
-                else if(inputNum == 0)
+                if(inputNum == 0)
                 {
                     break;
                 }
@@ -92,6 +118,20 @@ namespace Console_Project
             }
         }
 
-        public void UseItem()
+        public void NomalMonsterAttackPlayer(Player player, Monster monster )
+        {
+            Console.WriteLine($"{monster.MonsterName}의 공격!!");
+            player.HP -= monster.MonsterDamage - player.DefensivePower;
+            Console.WriteLine($"{monster.MonsterName}가 {monster.MonsterDamage - player.DefensivePower}만큼의 데미지를 플레이어에게 입혀 {player.HP}만큼의 HP가 남았습니다");
+        }
+
+        public void NomalMonsterBattleWin(Player player, Monster monster)
+        {
+            if(monster.MonsterHP == 0 || monster.MonsterHP < 0)
+            {
+                monster.MonsterMP = 0;
+
+            }
+        }
     }
 }
