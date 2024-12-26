@@ -33,7 +33,8 @@ namespace Console_Project
                     shopNPC.CreateShopInven();
                     shopNPC.AddShopItem();
                     ConsoleKeyInfo myKey = new ConsoleKeyInfo();
-                    while(true)
+                    Console.CursorVisible = false;
+                    while (true)
                     {
                         if(myKey.Key == ConsoleKey.I)
                         {

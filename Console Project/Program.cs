@@ -49,8 +49,8 @@ namespace Console_Project
                     {
                         myPlayer.MoveLeft(map);
                     }
-                    map.Render(myPlayer, monster);
                 }
+                map.Render(myPlayer, monster);
 
             }
             battle.NomalMonsterBattle(myPlayer, monster);
