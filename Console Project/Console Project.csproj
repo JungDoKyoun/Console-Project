@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BattleSystem.cs" />
     <Compile Include="BossMonster.cs" />
+    <Compile Include="GameManager.cs" />
     <Compile Include="IInteract.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Map.cs" />

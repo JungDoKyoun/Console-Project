@@ -9,6 +9,7 @@ namespace Console_Project
     internal class MonsterManager
     {
         public List<Monster> FirstMapNomalMonster { get; set; }
+        public List<Monster> FirstMapBossMonster { get; set;}
         static int _firstMapNomalMonsterCount = 0;
         Random random = new Random();
 

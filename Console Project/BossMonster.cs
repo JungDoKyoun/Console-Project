@@ -8,6 +8,10 @@ namespace Console_Project
 {
     internal class BossMonster : Monster
     {
+        public BossMonster()
+        {
+
+        }
         public BossMonster(string name, int level, int HP, int MP, int damage, int Def, int exp, int money, int posX, int posY) : base(name, level, HP, MP, damage, Def, exp, money, posX, posY)
         {
         }

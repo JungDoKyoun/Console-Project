@@ -10,6 +10,7 @@ namespace Console_Project
     internal class BattleSystem
     {
         bool isRun = false;
+        
         public void NomalMonsterBattle(Player player, MonsterManager monster)
         {
             while(true)
@@ -22,7 +23,21 @@ namespace Console_Project
                 {
                     break;
                 }
+                else if(monster.ReturnMonster().MonsterHP == 0 || monster.ReturnMonster().MonsterHP < 0)
+                {
+                    NomalMonsterBattleWin(player, monster.ReturnMonster());
+                    monster.FirstMapNomalMonster.Remove(monster.ReturnMonster());
+                    break;
+                }
+                Thread.Sleep(1000);
+                Console.Clear();
+
                 NomalMonsterAttackPlayer(player, monster.ReturnMonster());
+                if(PlayerLoss(player) == true)
+                {
+                    Console.WriteLine("당신은 죽었습니다");
+                    break;
+                }
             }
             
 
@@ -41,14 +56,17 @@ namespace Console_Project
                 if(inputNum == 1)
                 {
                     PlayerAttackMonster(player, monster);
+                    break;
                 }
                 else if(inputNum == 2)
                 {
                     PlayerUseSkill(player, monster);
+                    break;
                 }
                 else if (inputNum == 3)
                 {
                     player.UseUsableItem();
+                    break;
                 }
                 else if (inputNum == 4)
                 {
@@ -63,14 +81,13 @@ namespace Console_Project
                     else
                     {
                         Console.WriteLine("도망에 실패했습니다");
+                        break;
                     }
                 }
                 else
                 {
                     continue;
                 }
-                Thread.Sleep(1000);
-                Console.Clear();
             }
             
         }
@@ -78,7 +95,7 @@ namespace Console_Project
         {
             Console.WriteLine($"{monster.MonsterName}을 공격하였다!!");
             monster.MonsterHP -= player.Damage - monster.MonsterDefensivePower;
-            Console.WriteLine($"{monster.MonsterName}에게 {player.Damage}만큼의 피해를 입혀 체력 {monster.MonsterHP}이 남았습니다");
+            Console.WriteLine($"{monster.MonsterName}에게 {player.Damage - monster.MonsterDefensivePower}만큼의 피해를 입혀 체력 {monster.MonsterHP}이 남았습니다");
         }
 
         public void PlayerUseSkill(Player player, Monster monster)
@@ -131,8 +148,22 @@ namespace Console_Project
             if(monster.MonsterHP == 0 || monster.MonsterHP < 0)
             {
                 monster.MonsterMP = 0;
-
+                player.PlayerExp += monster.MonsterGiveExp;
+                player.PlayerMoney += monster.MonsterGiveMoney;
+                isWin = true;
+                Console.WriteLine($"{monster.MonsterName}과의 싸움에서 승리하였습니다!!");
+                Console.WriteLine($"{monster.MonsterGiveExp}만큼의 경험치와 {monster.MonsterGiveMoney}만큼의 돈을 획득하였습니다");
+                
             }
+        }
+
+        public bool PlayerLoss(Player player)
+        {
+            if(player.HP == 0 || player.HP < 0)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

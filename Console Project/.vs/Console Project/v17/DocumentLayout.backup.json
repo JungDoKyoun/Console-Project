@@ -3,48 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\battlesystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:battlesystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\monstermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:monstermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\skillholysmite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:skillholysmite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\shopnpc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:shopnpc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\npc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:npc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\iinteract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:iinteract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\monster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:monster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\nomalmonster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:nomalmonster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\skilltrippleslash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:skilltrippleslash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\skillsmite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:skillsmite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|c:\\users\\kga\\desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\console-project\\console project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\iinteract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:iinteract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\nomalmonster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:nomalmonster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\monstermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:monstermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\skill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -55,16 +43,28 @@
       "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\skillholysmite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:skillholysmite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\npc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:npc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\shopnpc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:shopnpc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\skillsmite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:skillsmite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\bossmonster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:bossmonster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|c:\\users\\kga\\desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\console-project\\console project\\battlesystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:battlesystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\skilltrippleslash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:skilltrippleslash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -78,13 +78,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "MonsterManager.cs",
               "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\MonsterManager.cs",
               "RelativeDocumentMoniker": "MonsterManager.cs",
-              "ToolTip": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\MonsterManager.cs*",
-              "RelativeToolTip": "MonsterManager.cs*",
-              "ViewState": "AgIAACQAAAAAAAAAAAAYwDIAAABYAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\MonsterManager.cs",
+              "RelativeToolTip": "MonsterManager.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAzwDIAAABYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-26T04:15:56.675Z",
               "EditorCaption": ""
@@ -92,97 +92,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\Program.cs*",
-              "RelativeToolTip": "Program.cs*",
-              "ViewState": "AgIAACUAAAAAAAAAAAAYwDQAAAAPAAAAAAAAAA==",
+              "Title": "BattleSystem.cs",
+              "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\BattleSystem.cs",
+              "RelativeDocumentMoniker": "BattleSystem.cs",
+              "ToolTip": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\BattleSystem.cs*",
+              "RelativeToolTip": "BattleSystem.cs*",
+              "ViewState": "AgIAAFIAAAAAAAAAAADwv14AAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-20T07:44:07.773Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Map.cs",
-              "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\Map.cs",
-              "RelativeDocumentMoniker": "Map.cs",
-              "ToolTip": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\Map.cs",
-              "RelativeToolTip": "Map.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAA9wEgAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T05:35:41.658Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ShopNPC.cs",
-              "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\ShopNPC.cs",
-              "RelativeDocumentMoniker": "ShopNPC.cs",
-              "ToolTip": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\ShopNPC.cs",
-              "RelativeToolTip": "ShopNPC.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAWwC8AAACDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T00:38:18.067Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SkillHolySmite.cs",
-              "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\SkillHolySmite.cs",
-              "RelativeDocumentMoniker": "SkillHolySmite.cs",
-              "ToolTip": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\SkillHolySmite.cs",
-              "RelativeToolTip": "SkillHolySmite.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAACMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T02:35:37.133Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "SkillSmite.cs",
-              "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\SkillSmite.cs",
-              "RelativeDocumentMoniker": "SkillSmite.cs",
-              "ToolTip": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\SkillSmite.cs",
-              "RelativeToolTip": "SkillSmite.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAACMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T02:22:48.419Z",
+              "WhenOpened": "2024-12-26T00:28:16.31Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Monster.cs",
-              "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\Monster.cs",
-              "RelativeDocumentMoniker": "Monster.cs",
-              "ToolTip": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\Monster.cs",
-              "RelativeToolTip": "Monster.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAxwDEAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T05:17:05.594Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "NPC.cs",
-              "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\NPC.cs",
-              "RelativeDocumentMoniker": "NPC.cs",
-              "ToolTip": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\NPC.cs",
-              "RelativeToolTip": "NPC.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T00:37:49.613Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "NomalMonster.cs",
               "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\NomalMonster.cs",
               "RelativeDocumentMoniker": "NomalMonster.cs",
@@ -195,20 +117,59 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 5,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\Player.cs",
               "RelativeDocumentMoniker": "Player.cs",
               "ToolTip": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\Player.cs",
               "RelativeToolTip": "Player.cs",
-              "ViewState": "AgIAAFYBAAAAAAAAAAAawFsBAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAALcBAAAAAAAAAIAwwFsBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-20T08:30:57.436Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T07:44:07.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SkillTrippleSlash.cs",
+              "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\SkillTrippleSlash.cs",
+              "RelativeDocumentMoniker": "SkillTrippleSlash.cs",
+              "ToolTip": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\SkillTrippleSlash.cs",
+              "RelativeToolTip": "SkillTrippleSlash.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T02:35:20.079Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Monster.cs",
+              "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\Monster.cs",
+              "RelativeDocumentMoniker": "Monster.cs",
+              "ToolTip": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\Monster.cs",
+              "RelativeToolTip": "Monster.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAUwDEAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-23T05:17:05.594Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "IInteract.cs",
               "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\IInteract.cs",
               "RelativeDocumentMoniker": "IInteract.cs",
@@ -221,7 +182,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 8,
               "Title": "Skill.cs",
               "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\Skill.cs",
               "RelativeDocumentMoniker": "Skill.cs",
@@ -234,7 +195,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 9,
               "Title": "Item.cs",
               "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\Item.cs",
               "RelativeDocumentMoniker": "Item.cs",
@@ -247,7 +208,71 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "SkillHolySmite.cs",
+              "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\SkillHolySmite.cs",
+              "RelativeDocumentMoniker": "SkillHolySmite.cs",
+              "ToolTip": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\SkillHolySmite.cs",
+              "RelativeToolTip": "SkillHolySmite.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAACMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T02:35:37.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Map.cs",
+              "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\Map.cs",
+              "RelativeDocumentMoniker": "Map.cs",
+              "ToolTip": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\Map.cs",
+              "RelativeToolTip": "Map.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAowEgAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-23T05:35:41.658Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "NPC.cs",
+              "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\NPC.cs",
+              "RelativeDocumentMoniker": "NPC.cs",
+              "ToolTip": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\NPC.cs",
+              "RelativeToolTip": "NPC.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-23T00:37:49.613Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 13,
+              "Title": "ShopNPC.cs",
+              "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\ShopNPC.cs",
+              "RelativeDocumentMoniker": "ShopNPC.cs",
+              "ToolTip": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\ShopNPC.cs",
+              "RelativeToolTip": "ShopNPC.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAWwC8AAACDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-23T00:38:18.067Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "SkillSmite.cs",
+              "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\SkillSmite.cs",
+              "RelativeDocumentMoniker": "SkillSmite.cs",
+              "ToolTip": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\SkillSmite.cs",
+              "RelativeToolTip": "SkillSmite.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAACMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T02:22:48.419Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "BossMonster.cs",
               "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\BossMonster.cs",
               "RelativeDocumentMoniker": "BossMonster.cs",
@@ -255,33 +280,7 @@
               "RelativeToolTip": "BossMonster.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T09:16:52.675Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "BattleSystem.cs",
-              "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\BattleSystem.cs",
-              "RelativeDocumentMoniker": "BattleSystem.cs",
-              "ToolTip": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\BattleSystem.cs",
-              "RelativeToolTip": "BattleSystem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T00:28:16.31Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "SkillTrippleSlash.cs",
-              "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\SkillTrippleSlash.cs",
-              "RelativeDocumentMoniker": "SkillTrippleSlash.cs",
-              "ToolTip": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\SkillTrippleSlash.cs",
-              "RelativeToolTip": "SkillTrippleSlash.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T02:35:20.079Z"
+              "WhenOpened": "2024-12-23T09:16:52.675Z"
             }
           ]
         }
