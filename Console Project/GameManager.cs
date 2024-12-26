@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Console_Project
@@ -13,6 +14,24 @@ namespace Console_Project
             
             while(true)
             {
+                Player player = new Player(10, 10, 1000, 10);
+                MonsterManager monster = new MonsterManager();
+                Map map = new Map();
+                ShopNPC shopNPC = new ShopNPC();
+                HouseNPC houseNPC = new HouseNPC();
+                BattleSystem battleSystem = new BattleSystem();
+                player.CreateInven();
+                player.CreatePlayerSkillSlot();
+                shopNPC.CreateShopInven();
+                shopNPC.AddShopItem();
+                ConsoleKeyInfo myKey = new ConsoleKeyInfo();
+                Console.CursorVisible = false;
+                map.Initialize(10, 20);
+                player.SetPlayerPos();
+                monster.SetMonster(map);
+                monster.SetBossMonster(map);
+                monster.SetBossSkillSlot(monster.ReturnBossMonster());
+
                 Console.WriteLine("게임을 시작 하려면 1번키, 종료하려면 0번 키를 누르세요");
                 int inputNum = int.Parse(Console.ReadLine());
                 if(inputNum == 0)
@@ -23,27 +42,18 @@ namespace Console_Project
 
                 else if(inputNum == 1)
                 {
-                    Player player = new Player(10, 10, 10, 10);
-                    MonsterManager monster = new MonsterManager();
-                    Queue<Map> maps = new Queue<Map>();
-                    ShopNPC shopNPC = new ShopNPC();
-                    HouseNPC houseNPC = new HouseNPC();
-                    player.CreateInven();
-                    player.CreatePlayerSkillSlot();
-                    shopNPC.CreateShopInven();
-                    shopNPC.AddShopItem();
-                    ConsoleKeyInfo myKey = new ConsoleKeyInfo();
-                    Console.CursorVisible = false;
+                    
                     while (true)
                     {
-                        if(myKey.Key == ConsoleKey.I)
+                        if(battleSystem.PlayerLoss(player)== true)
                         {
-                            player.ShowPlayerInven();
+                            break;
                         }
-                        else if(myKey.Key == ConsoleKey.C)
+                        if (battleSystem.BossDie(monster.ReturnBossMonster()) == true)
                         {
-                            player.EquipmentSet();
+                            break;
                         }
+                        Console.Clear();
                         Console.WriteLine("현재 위치는 마을입니다 갈 곳을 선택해 주세요");
                         Console.WriteLine("----------------------------------");
                         Console.WriteLine("1. 집\t2. 상점\t3. 사냥터");
@@ -64,12 +74,58 @@ namespace Console_Project
 
                         else if( inputNum == 3)
                         {
-                            maps.Enqueue()
+                            Console.Clear();
+                            
+                            while (true)
+                            {
+                                if (Console.KeyAvailable)
+                                {
+                                    myKey = Console.ReadKey(true);
+                                    if (myKey.Key == ConsoleKey.DownArrow)
+                                    {
+                                        player.MoveForward(map, battleSystem, monster, player);
+                                    }
+                                    else if (myKey.Key == ConsoleKey.UpArrow)
+                                    {
+                                        player.MoveBackward(map, battleSystem, monster, player);
+                                    }
+                                    else if (myKey.Key == ConsoleKey.RightArrow)
+                                    {
+                                        player.MoveRight(map, battleSystem, monster, player);
+                                    }
+                                    else if (myKey.Key == ConsoleKey.LeftArrow)
+                                    {
+                                        player.MoveLeft(map, battleSystem, monster, player);
+                                    }
+                                }
+                                if (battleSystem.PlayerLoss(player) == true)
+                                {
+                                    break;
+                                }
+                                if(battleSystem.BossDie(monster.ReturnBossMonster())== true)
+                                {
+                                    break; 
+                                }
+                                if(player.IsHome == true)
+                                {
+                                    player.IsHome = false;
+                                    break;
+                                }
+                                
+
+                                map.Render(player, monster);
+                            }
                         }
                     }
-
+                    
+                }
+                if (battleSystem.BossDie(monster.ReturnBossMonster()) == true)
+                {
+                    Console.WriteLine("고블린 부락을 없애 마을에 평화를 지켰습니다");
+                    break;
                 }
             }
+
             
 
         }

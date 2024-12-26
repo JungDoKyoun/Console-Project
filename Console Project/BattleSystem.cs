@@ -11,7 +11,7 @@ namespace Console_Project
     {
         bool isRun = false;
         
-        public void NomalMonsterBattle(Player player, MonsterManager monster)
+        public void NomalMonsterBattle(Player player, MonsterManager monster, Map map)
         {
             while(true)
             {
@@ -22,6 +22,7 @@ namespace Console_Project
                 PlayerChooseAttack(player, monster.ReturnMonster());
                 if(isRun == true)
                 {
+                    isRun = false;
                     Thread.Sleep(1000);
                     Console.Clear();
                     break;
@@ -29,7 +30,8 @@ namespace Console_Project
                 else if(monster.ReturnMonster().MonsterHP == 0 || monster.ReturnMonster().MonsterHP < 0)
                 {
                     NomalMonsterBattleWin(player, monster.ReturnMonster());
-                    monster.FirstMapNomalMonster.Remove(monster.ReturnMonster());
+                    map.TileTypes[monster.ReturnMonster().MonsterPosX, monster.ReturnMonster().MonsterPosY] = Map.TileType.Empty;
+                    monster.RezenMonster(map);
                     Thread.Sleep(1000);
                     Console.Clear();
                     break;
@@ -42,11 +44,47 @@ namespace Console_Project
                 if(PlayerLoss(player) == true)
                 {
                     Console.WriteLine("당신은 죽었습니다");
+                    Thread.Sleep(1000);
+                    Console.Clear();
                     break;
                 }
             }
-            
+        }
 
+        public void BossMonsterBattle(Player player, MonsterManager monster)
+        {
+            while (true)
+            {
+                Console.Clear();
+                player.PrintBattlePlayerInfo();
+                Console.WriteLine();
+                monster.PrintBattleBossMonsterInfo();
+                PlayerChooseAttack(player, monster.ReturnBossMonster());
+                if (isRun == true)
+                {
+                    Thread.Sleep(1000);
+                    Console.Clear();
+                    break;
+                }
+                else if (monster.ReturnBossMonster().MonsterHP == 0 || monster.ReturnBossMonster().MonsterHP < 0)
+                {
+                    BossMonsterBattleWin(player, monster.ReturnBossMonster());
+                    monster.FirstMapBossMonster.Remove(monster.ReturnBossMonster());
+                    Thread.Sleep(1000);
+                    Console.Clear();
+                    break;
+
+                }
+                Thread.Sleep(1000);
+                Console.Clear();
+
+                BossMonsterAttack(player, monster);
+                if (PlayerLoss(player) == true)
+                {
+                    Console.WriteLine("당신은 죽었습니다");
+                    break;
+                }
+            }
         }
         public void PlayerChooseAttack(Player player, Monster monster)
         {
@@ -101,7 +139,7 @@ namespace Console_Project
         {
             Console.WriteLine($"{monster.MonsterName}을 공격하였다!!");
             monster.MonsterHP -= player.Damage - monster.MonsterDefensivePower;
-            Console.WriteLine($"{monster.MonsterName}에게 {player.Damage - monster.MonsterDefensivePower}만큼의 피해를 입혀 체력 {monster.MonsterHP}이 남았습니다");
+            Console.WriteLine($"{monster.MonsterName}에게 {player.Damage - monster.MonsterDefensivePower}만큼의 피해를 입혔습니다");
         }
 
         public void PlayerUseSkill(Player player, Monster monster)
@@ -146,14 +184,14 @@ namespace Console_Project
         {
             Console.WriteLine($"{monster.MonsterName}의 공격!!");
             player.HP -= monster.MonsterDamage - player.DefensivePower;
-            Console.WriteLine($"{monster.MonsterName}가 {monster.MonsterDamage - player.DefensivePower}만큼의 데미지를 플레이어에게 입혀 {player.HP}만큼의 HP가 남았습니다");
+            Console.WriteLine($"{monster.MonsterName}가 {monster.MonsterDamage - player.DefensivePower}만큼의 데미지를 플레이어에게 입혔습니다");
         }
 
         public void NomalMonsterBattleWin(Player player, Monster monster)
         {
             if(monster.MonsterHP == 0 || monster.MonsterHP < 0)
             {
-                monster.MonsterMP = 0;
+                monster.MonsterHP = 0;
                 player.PlayerExp += monster.MonsterGiveExp;
                 player.PlayerMoney += monster.MonsterGiveMoney;
                 Console.WriteLine($"{monster.MonsterName}과의 싸움에서 승리하였습니다!!");
@@ -161,10 +199,49 @@ namespace Console_Project
                 
             }
         }
+        public void BossMonsterBattleWin(Player player, Monster monster)
+        {
+            if (monster.MonsterHP == 0 || monster.MonsterHP < 0)
+            {
+                monster.MonsterHP = 0;
+                BossDie(monster);
+                player.PlayerExp += monster.MonsterGiveExp;
+                player.PlayerMoney += monster.MonsterGiveMoney;
+                Console.WriteLine($"{monster.MonsterName}과의 싸움에서 승리하였습니다!!");
+                Console.WriteLine($"{monster.MonsterGiveExp}만큼의 경험치와 {monster.MonsterGiveMoney}만큼의 돈을 획득하였습니다");
+
+            }
+        }
+
+        public void BossMonsterAttack(Player player, MonsterManager monster)
+        {
+            Random random = new Random();
+            int Num = random.Next(0, 4);
+            if(Num == 0)
+            {
+                Console.WriteLine("파이어볼 사용");
+                monster.BossSkill[0].SkillAttack(player, monster.ReturnBossMonster());
+            }
+            else
+            {
+                NomalMonsterAttackPlayer(player, monster.ReturnBossMonster());
+            }
+        }
+
+
 
         public bool PlayerLoss(Player player)
         {
             if(player.HP == 0 || player.HP < 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool BossDie(Monster monster)
+        {
+            if(monster.MonsterHP == 0 || monster.MonsterHP < 0)
             {
                 return true;
             }

@@ -12,7 +12,7 @@ namespace Console_Project
         {
 
         }
-        public NomalMonster(string name, int level, int HP, int MP, int damage, int Def, int exp, int money, int posX, int posY) : base(name, level, HP, MP, damage, Def, exp, money, posX, posY)
+        public NomalMonster(string name, int level, int HP, int MP, int damage, int Def, int exp, int money, int posX, int posY, MonsterSkill skill) : base(name, level, HP, MP, damage, Def, exp, money, posX, posY, skill)
         {
         }
 

@@ -8,7 +8,7 @@ namespace Console_Project
 {
     enum MonsterSkill
     {
-
+        non ,FireBall
     }
     abstract class Monster
     {
@@ -36,7 +36,7 @@ namespace Console_Project
         public int MonsterPosY { get; set; }
         public object Value { get; }
 
-        public Monster(string name, int level, int HP, int MP, int damage, int Def,int exp, int money, int posX, int posY)
+        public Monster(string name, int level, int HP, int MP, int damage, int Def,int exp, int money, int posX, int posY, MonsterSkill monsterSkill)
         {
             MonsterName = name;
             MonsterLevel = level;
@@ -48,6 +48,7 @@ namespace Console_Project
             MonsterGiveMoney = money;
             MonsterPosX = posX;
             MonsterPosY = posY;
+            MonsterSkill = MonsterSkill;
         }
         public Monster()
         {

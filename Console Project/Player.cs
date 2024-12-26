@@ -22,6 +22,7 @@ namespace Console_Project
 
         public int PlayerPosX { get; set; }
         public int PlayerPosY { get; set; }
+        public bool IsHome{ get; set; }
         List<Item> inven;
         Item[] _weaponItem = new Item[1];
         Item[] _armorItem = new Item[1];
@@ -45,7 +46,7 @@ namespace Console_Project
         public void SetPlayerPos()
         {
             PlayerPosX = 1;
-            PlayerPosY = 1;
+            PlayerPosY = 2;
         }
         public void CreateInven()
         {
@@ -360,6 +361,7 @@ namespace Console_Project
             if(usableitem.Count == 0)
             {
                 Console.WriteLine("사용할 수 있는 아이템이 없습니다");
+                
             }
             else if(usableitem.Count != 0)
             {
@@ -401,7 +403,15 @@ namespace Console_Project
             }
             else if(map.TileTypes[PlayerPosX, PlayerPosY + 1] == Map.TileType.Monster)
             {
-                battleSystem.NomalMonsterBattle(player, monster);
+                battleSystem.NomalMonsterBattle(player, monster, map);
+            }
+            else if (map.TileTypes[PlayerPosX, PlayerPosY + 1] == Map.TileType.BossMonster)
+            {
+                battleSystem.BossMonsterBattle(player, monster);
+            }
+            else if (map.TileTypes[PlayerPosX, PlayerPosY + 1] == Map.TileType.Menu)
+            {
+                IsHome = map.Menus();
             }
         }
 
@@ -420,7 +430,15 @@ namespace Console_Project
             }
             else if (map.TileTypes[PlayerPosX, PlayerPosY - 1] == Map.TileType.Monster)
             {
-                battleSystem.NomalMonsterBattle(player, monster);
+                battleSystem.NomalMonsterBattle(player, monster, map);
+            }
+            else if (map.TileTypes[PlayerPosX, PlayerPosY - 1] == Map.TileType.BossMonster)
+            {
+                battleSystem.BossMonsterBattle(player, monster);
+            }
+            else if (map.TileTypes[PlayerPosX, PlayerPosY - 1] == Map.TileType.Menu)
+            {
+                IsHome = map.Menus();
             }
         }
 
@@ -439,7 +457,15 @@ namespace Console_Project
             }
             else if (map.TileTypes[PlayerPosX + 1, PlayerPosY] == Map.TileType.Monster)
             {
-                battleSystem.NomalMonsterBattle(player, monster);
+                battleSystem.NomalMonsterBattle(player, monster, map);
+            }
+            else if (map.TileTypes[PlayerPosX + 1, PlayerPosY] == Map.TileType.BossMonster)
+            {
+                battleSystem.BossMonsterBattle(player, monster);
+            }
+            else if (map.TileTypes[PlayerPosX + 1, PlayerPosY] == Map.TileType.Menu)
+            {
+                IsHome = map.Menus();
             }
         }
 
@@ -458,10 +484,21 @@ namespace Console_Project
             }
             else if (map.TileTypes[PlayerPosX - 1, PlayerPosY] == Map.TileType.Monster)
             {
-                battleSystem.NomalMonsterBattle(player, monster);
+                battleSystem.NomalMonsterBattle(player, monster, map);
                 
             }
+            else if (map.TileTypes[PlayerPosX - 1, PlayerPosY] == Map.TileType.BossMonster)
+            {
+                battleSystem.BossMonsterBattle(player, monster);
+
+            }
+            else if (map.TileTypes[PlayerPosX - 1, PlayerPosY] == Map.TileType.Menu)
+            {
+                IsHome = map.Menus();
+            }
         }
+
+        
 
         public void PrintBattlePlayerInfo()
         {

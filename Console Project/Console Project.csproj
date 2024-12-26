@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BattleSystem.cs" />
     <Compile Include="BossMonster.cs" />
+    <Compile Include="FireBall.cs" />
     <Compile Include="GameManager.cs" />
     <Compile Include="HouseNPC.cs" />
     <Compile Include="IInteract.cs" />
