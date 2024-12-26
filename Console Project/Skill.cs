@@ -6,28 +6,21 @@ using System.Threading.Tasks;
 
 namespace Console_Project
 {
-    internal class Skill
+    abstract class Skill
     {
-        //public List<PlayerSkill> playerSkills;
-        //public void PlayerGetSkillState()
-        //{
-        //    playerSkills = new List<PlayerSkill>();
-        //}
-        //public void GetSmite()
-        //{
-        //    Console.WriteLine("강타를 습득하였다");
-        //    playerSkills.Add(PlayerSkill.Smite);
-        //}
-        //public void GetTrippleSlash()
-        //{
-        //    Console.WriteLine("트리플 슬레쉬를 습득하였다");
-        //    playerSkills.Add(PlayerSkill.TrippleSlash);
-        //}
+        public string SkillName { get; set; }
+        public string SkillDescription { get; set; }
+        public int SkillDamage { get; set; }
+        public int SkillMP { get; set; }
 
-        //public void GetHolySmite()
-        //{
-        //    Console.WriteLine("신성 강타를 습득하였다");
-        //    playerSkills.Add(PlayerSkill.HolySmite);
-        //}
+        public Skill(string skillName, string skillDescription, int skillDamage, int skillMP)
+        {
+            SkillName = skillName;
+            SkillDescription = skillDescription;
+            SkillDamage = skillDamage;
+            SkillMP = skillMP;
+        }
+        public abstract void SkillAttack(Player player, Monster monster);
+
     }
 }

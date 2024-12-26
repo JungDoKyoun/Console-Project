@@ -14,19 +14,12 @@ namespace Console_Project
             while(true)
             {
                 Console.WriteLine($"{monster.MonsterName}을 만났다!!!");
+                player.PrintBattlePlayerInfo();
+                Console.WriteLine();
+                monster.PrintBattleMonsterInfo();
                 Console.WriteLine("취할 행동을 선택하여 주세요");
                 Console.WriteLine("1. 일반공격\t2. 스킬사용\t3. 아이템사용\t4. 도주");
                 bool isCorrect = int.TryParse(Console.ReadLine(), out int inputNum);
-
-                //if (isCorrect != true || inputNum > 4 || inputNum < 1)
-                //{
-                //    Console.WriteLine($"{monster.MonsterName}을 만났다!!!");
-                //    Console.WriteLine("취할 행동을 선택하여 주세요");
-                //    Console.WriteLine("1. 일반공격\t2. 스킬사용\t3. 아이템사용\t4. 도주");
-                //    isCorrect = int.TryParse(Console.ReadLine(), out inputNum);
-                //    Thread.Sleep(1000);
-                //    Console.Clear();
-                //}
 
                 if(inputNum == 1)
                 {
@@ -34,6 +27,7 @@ namespace Console_Project
                 }
                 else if(inputNum == 2)
                 {
+                    PlayerUseSkill(player, monster);
                     break;
                 }
                 else if (inputNum == 3)
@@ -64,37 +58,40 @@ namespace Console_Project
         {
             while(true)
             {
-                Console.WriteLine("사용할 스킬을 선택하세요");
+                Console.WriteLine("사용할 스킬을 선택하세요 (0번을 누르면 이전 화면으로 넘어갑니다)");
                 Console.WriteLine();
                 player.PrintPlayerSkill();
                 Console.WriteLine();
                 bool isCorrect = int.TryParse(Console.ReadLine(), out int inputNum);
 
-                if(player.PlayerSkill.Count == 0)
+                if (player.PlayerSkills.Count == 0)
                 {
                     Console.WriteLine("사용 할 수 있는 스킬이 없습니다");
                     break;
                 }
-                else if(player.PlayerSkill.Count == 1)
+                else if(inputNum == 0)
                 {
-                    if(inputNum == 1)
-                    {
-                        Console.WriteLine("강타를 사용합니다");
-                        monster.MonsterHP -= (player.Damage * 2) - monster.MonsterDefensivePower;
-                        break;
-                    }
+                    break;
                 }
-                else if(player.PlayerSkill.Count == 2)
+                else if (inputNum == 1 && player.PlayerSkills[0] != null)
                 {
-                    if (inputNum == 1)
-                    {
-                        Console.WriteLine("강타를 사용합니다");
-                        monster.MonsterHP -= (player.Damage * 2) - monster.MonsterDefensivePower;
-                    }
-                    else if(inputNum ==2)
+                    player.PlayerSkills[0].SkillAttack(player, monster);
+                    break;
                 }
-
+                else if (inputNum == 2 && player.PlayerSkills[1] != null)
+                {
+                    player.PlayerSkills[1].SkillAttack(player, monster);
+                    break;
+                }
+                else if (inputNum == 3 && player.PlayerSkills[2] != null)
+                {
+                    player.PlayerSkills[2].SkillAttack(player, monster);
+                    break;
+                }
+                
             }
         }
+
+        public void UseItem()
     }
 }

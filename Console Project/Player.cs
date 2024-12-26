@@ -9,10 +9,6 @@ using System.Threading.Tasks;
 
 namespace Console_Project
 {
-    enum PlayerSkill
-    {
-        Smite = 1, TrippleSlash, HolySmite
-    }
     internal class Player
     {
         public string Name { get; set; }
@@ -22,7 +18,6 @@ namespace Console_Project
         public int MP { get; set; }
         public int Damage { get; set; }
         public int DefensivePower { get; set; }
-        public List<PlayerSkill> PlayerSkill { get; set; }
         public int PlayerMoney { get; set; }
 
         public int PlayerPosX { get; set; }
@@ -30,10 +25,12 @@ namespace Console_Project
         List<Item> inven;
         Item[] _weaponItem = new Item[1];
         Item[] _armorItem = new Item[1];
+        public List<Skill> PlayerSkills { get;  set; }
         ConsoleKeyInfo myKey;
 
         public Player(int hp, int mp, int damage, int defensivePower)
         {
+            Name = "한스";
             PlayerLevel = 1;
             PlayerExp = 0;
             HP = hp;
@@ -305,6 +302,11 @@ namespace Console_Project
             }
         }
 
+        public void CreatePlayerSkillSlot()
+        {
+            PlayerSkills = new List<Skill>();
+        }
+
         public void PlayerLveleUp()
         {
             Console.WriteLine("레벨업!!");
@@ -321,18 +323,15 @@ namespace Console_Project
             }
             if(PlayerLevel == 5)
             {
-                PlayerSkill.Add(Console_Project.PlayerSkill.Smite);
-                Console.WriteLine("강타를 습득하였다");
+                PlayerSkills.Add(new SkillSmite("강타", "공격력 + 10만큼의 데미지를 준다", Damage + 10, 5));
             }
             else if(PlayerLevel == 15)
             {
-                PlayerSkill.Add(Console_Project.PlayerSkill.TrippleSlash);
-                Console.WriteLine("트리플 슬레쉬를 습득하였다");
+                PlayerSkills.Add(new SkillTrippleSlash("트리플 슬래쉬", "공격력 + 20만큼의 데미지를 준다", Damage + 20, 10));
             }
             else if(PlayerLevel == 25)
             {
-                PlayerSkill.Add(Console_Project.PlayerSkill.HolySmite);
-                Console.WriteLine("신성한 강타를 습득하였다");
+                PlayerSkills.Add(new SkillHolySmite("신성 강타", "공격력 두배 만큼의 데미지를 준다", Damage * 2, 20));
             }    
             HP = 100;
             MP = 100;
@@ -412,9 +411,9 @@ namespace Console_Project
         {
             Console.WriteLine("플레이어 스킬창");
             Console.WriteLine("--------------------------------------");
-            for(int i = 0; i < PlayerSkill.Count; i++)
+            for(int i = 0; i < PlayerSkills.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. {PlayerSkill}");
+                Console.WriteLine($"{i + 1}. {PlayerSkills[i].SkillName}  {PlayerSkills[i].SkillDescription}  데미지 : {PlayerSkills[i].SkillDamage}  소모MP : {PlayerSkills[i].SkillMP}");
             }
             Console.WriteLine("--------------------------------------");
         }
