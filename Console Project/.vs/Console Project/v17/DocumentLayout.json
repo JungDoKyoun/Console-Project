@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|c:\\users\\kga\\desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\console-project\\console project\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -19,7 +19,7 @@
       "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:housenpc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|c:\\users\\kga\\desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\console-project\\console project\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|C:\\Users\\KGA\\Desktop\\\uCF58\uC194 \uD504\uB85C\uC81D\uD2B8\\Console-Project\\Console Project\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F446C646-3030-4E2D-849D-FF67E9B24575}|Console Project.csproj|solutionrelative:map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -107,8 +107,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAB0AAAAAAAAAAAAwwDEAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-20T07:44:07.773Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-20T07:44:07.773Z"
             },
             {
               "$type": "Document",
@@ -120,8 +119,7 @@
               "RelativeToolTip": "NomalMonster.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T09:16:31.123Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-23T09:16:31.123Z"
             },
             {
               "$type": "Document",
@@ -133,8 +131,7 @@
               "RelativeToolTip": "Monster.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAowDIAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T05:17:05.594Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-23T05:17:05.594Z"
             },
             {
               "$type": "Document",
@@ -146,8 +143,7 @@
               "RelativeToolTip": "Map.cs",
               "ViewState": "AgIAAEoAAAAAAAAAAAAAAEEAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T05:35:41.658Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-23T05:35:41.658Z"
             },
             {
               "$type": "Document",
@@ -159,8 +155,7 @@
               "RelativeToolTip": "NPC.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T00:37:49.613Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-23T00:37:49.613Z"
             },
             {
               "$type": "Document",
@@ -172,8 +167,7 @@
               "RelativeToolTip": "BattleSystem.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T00:28:16.31Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-26T00:28:16.31Z"
             },
             {
               "$type": "Document",
@@ -185,8 +179,7 @@
               "RelativeToolTip": "MonsterManager.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAcwCwAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T04:15:56.675Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-26T04:15:56.675Z"
             },
             {
               "$type": "Document",
@@ -198,8 +191,7 @@
               "RelativeToolTip": "HouseNPC.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAowBkAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T06:15:30.967Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-26T06:15:30.967Z"
             },
             {
               "$type": "Document",
@@ -211,8 +203,7 @@
               "RelativeToolTip": "IInteract.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T00:42:02.915Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-23T00:42:02.915Z"
             },
             {
               "$type": "Document",
@@ -224,8 +215,7 @@
               "RelativeToolTip": "GameManager.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAQwBgAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T05:56:38.82Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-26T05:56:38.82Z"
             },
             {
               "$type": "Document",
@@ -237,8 +227,7 @@
               "RelativeToolTip": "BossMonster.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T09:16:52.675Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-23T09:16:52.675Z"
             },
             {
               "$type": "Document",
@@ -250,8 +239,7 @@
               "RelativeToolTip": "ShopNPC.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAcwBEAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T00:38:18.067Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-23T00:38:18.067Z"
             },
             {
               "$type": "Document",
@@ -263,8 +251,7 @@
               "RelativeToolTip": "Skill.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAADwvxcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T01:33:51.161Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-26T01:33:51.161Z"
             },
             {
               "$type": "Document",
