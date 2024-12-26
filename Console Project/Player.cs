@@ -11,7 +11,7 @@ namespace Console_Project
 {
     enum PlayerSkill
     {
-        Blow, 
+        Smite = 1, TrippleSlash, HolySmite
     }
     internal class Player
     {
@@ -22,7 +22,7 @@ namespace Console_Project
         public int MP { get; set; }
         public int Damage { get; set; }
         public int DefensivePower { get; set; }
-        public PlayerSkill PlayerSkill { get; set; }
+        public List<PlayerSkill> PlayerSkill { get; set; }
         public int PlayerMoney { get; set; }
 
         public int PlayerPosX { get; set; }
@@ -319,6 +319,21 @@ namespace Console_Project
                 PlayerLevel++;
                 PlayerExp = 0 + rest;
             }
+            if(PlayerLevel == 5)
+            {
+                PlayerSkill.Add(Console_Project.PlayerSkill.Smite);
+                Console.WriteLine("강타를 습득하였다");
+            }
+            else if(PlayerLevel == 15)
+            {
+                PlayerSkill.Add(Console_Project.PlayerSkill.TrippleSlash);
+                Console.WriteLine("트리플 슬레쉬를 습득하였다");
+            }
+            else if(PlayerLevel == 25)
+            {
+                PlayerSkill.Add(Console_Project.PlayerSkill.HolySmite);
+                Console.WriteLine("신성한 강타를 습득하였다");
+            }    
             HP = 100;
             MP = 100;
             Damage += 10;
@@ -383,6 +398,25 @@ namespace Console_Project
                 PlayerPosX--;
                 map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Player;
             }
+        }
+
+        public void PrintBattlePlayerInfo()
+        {
+            Console.WriteLine("플레이어 상태창");
+            Console.WriteLine("--------------------------------------");
+            Console.WriteLine($"플레이어 HP : {HP}\t 플레이어 MP : {MP}");
+            Console.WriteLine("--------------------------------------");
+        }
+
+        public void PrintPlayerSkill()
+        {
+            Console.WriteLine("플레이어 스킬창");
+            Console.WriteLine("--------------------------------------");
+            for(int i = 0; i < PlayerSkill.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {PlayerSkill}");
+            }
+            Console.WriteLine("--------------------------------------");
         }
     }
 }

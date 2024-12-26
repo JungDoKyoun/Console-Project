@@ -20,6 +20,9 @@ namespace Console_Project
             map.Initialize(10);
             myPlayer.SetPlayerPos();
             Console.CursorVisible = false;
+            BattleSystem battle = new BattleSystem();
+
+            battle.PlayerChooseAttack(myPlayer, monster);
 
             while (true)
             {

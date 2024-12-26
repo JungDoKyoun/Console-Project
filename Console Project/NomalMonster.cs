@@ -43,5 +43,12 @@ namespace Console_Project
             
         }
 
+        public override void PrintBattleMonsterInfo()
+        {
+            Console.WriteLine($"{MonsterName}의 상태창");
+            Console.WriteLine("--------------------------------------");
+            Console.WriteLine($"{MonsterName}의 HP : {MonsterHP}\t{MonsterName}의 MP : {MonsterMP}");
+            Console.WriteLine("--------------------------------------");
+        }
     }
 }

@@ -12,6 +12,11 @@ namespace Console_Project
         {
         }
 
+        public override void PrintBattleMonsterInfo()
+        {
+            throw new NotImplementedException();
+        }
+
         public override void SetMonster(Map map)
         {
             throw new NotImplementedException();

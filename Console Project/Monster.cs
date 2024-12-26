@@ -43,5 +43,6 @@ namespace Console_Project
         }
 
         public abstract void SetMonster(Map map);
+        public abstract void PrintBattleMonsterInfo();
     }
 }
