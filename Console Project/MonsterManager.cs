@@ -24,12 +24,14 @@ namespace Console_Project
                 if (ran == 0)
                 {
                     FirstMapNomalMonster.Add(new NomalMonster("슬라임", 1, 30, 0, 10, 3, 10, 100, PosX, PosY));
+                    map.TileTypes[PosX, PosY] = Map.TileType.Monster;
                     _firstMapNomalMonsterCount++;
                     
                 }
                 else
                 {
                     FirstMapNomalMonster.Add(new NomalMonster("고블린", 1, 40, 0, 12, 0, 13, 120, PosX, PosY));
+                    map.TileTypes[PosX, PosY] = Map.TileType.Monster;
                     _firstMapNomalMonsterCount++;
                 }
             }
@@ -40,6 +42,7 @@ namespace Console_Project
         {
             FirstMapBossMonster = new List<Monster>();
             FirstMapBossMonster.Add(new BossMonster("고블린 족장", 5, 100, 10, 20, 6, 25, 300, 8, 8));
+            map.TileTypes[8, 8] = Map.TileType.BossMonster;
         }
 
         public Monster ReturnMonster()

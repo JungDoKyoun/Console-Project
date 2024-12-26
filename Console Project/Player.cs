@@ -386,7 +386,7 @@ namespace Console_Project
             
             
         }
-        public void MoveForward(Map map)
+        public void MoveForward(Map map, BattleSystem battleSystem, MonsterManager monster, Player player)
         {
             if (map.TileTypes[PlayerPosX, PlayerPosY + 1] == Map.TileType.Wall)
             {
@@ -399,9 +399,13 @@ namespace Console_Project
                 PlayerPosY++;
                 map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Player;
             }
+            else if(map.TileTypes[PlayerPosX, PlayerPosY + 1] == Map.TileType.Monster)
+            {
+                battleSystem.NomalMonsterBattle(player, monster);
+            }
         }
 
-        public void MoveBackward(Map map)
+        public void MoveBackward(Map map, BattleSystem battleSystem, MonsterManager monster, Player player)
         {
             if (map.TileTypes[PlayerPosX, PlayerPosY - 1] == Map.TileType.Wall)
             {
@@ -414,9 +418,13 @@ namespace Console_Project
                 PlayerPosY--;
                 map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Player;
             }
+            else if (map.TileTypes[PlayerPosX, PlayerPosY + 1] == Map.TileType.Monster)
+            {
+                battleSystem.NomalMonsterBattle(player, monster);
+            }
         }
 
-        public void MoveRight(Map map)
+        public void MoveRight(Map map, BattleSystem battleSystem, MonsterManager monster, Player player)
         {
             if (map.TileTypes[PlayerPosX + 1, PlayerPosY] == Map.TileType.Wall)
             {
@@ -429,9 +437,13 @@ namespace Console_Project
                 PlayerPosX++;
                 map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Player;
             }
+            else if (map.TileTypes[PlayerPosX, PlayerPosY + 1] == Map.TileType.Monster)
+            {
+                battleSystem.NomalMonsterBattle(player, monster);
+            }
         }
 
-        public void MoveLeft(Map map)
+        public void MoveLeft(Map map, BattleSystem battleSystem, MonsterManager monster, Player player)
         {
             if (map.TileTypes[PlayerPosX - 1, PlayerPosY] == Map.TileType.Wall)
             {
@@ -443,6 +455,10 @@ namespace Console_Project
                 map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Empty;
                 PlayerPosX--;
                 map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Player;
+            }
+            else if (map.TileTypes[PlayerPosX, PlayerPosY + 1] == Map.TileType.Monster)
+            {
+                battleSystem.NomalMonsterBattle(player, monster);
             }
         }
 

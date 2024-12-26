@@ -14,10 +14,11 @@ namespace Console_Project
         const char Player = '★';
         const char Monster = '◈';
         const char BossMonster = '♣';
+        const char Menu = '♠';
 
         public enum TileType
         {
-            Empty, Wall, Player, Monster, BossMonster
+            Empty, Wall, Player, Monster, BossMonster, Menu
         }
 
         ConsoleColor MapColor(TileType type)
@@ -34,6 +35,8 @@ namespace Console_Project
                     return ConsoleColor.Red;
                 case TileType.BossMonster:
                     return ConsoleColor.Yellow;
+                case TileType.Menu:
+                    return ConsoleColor.White;
                 default:
                     return ConsoleColor.Green;
             }
@@ -52,12 +55,15 @@ namespace Console_Project
                     {
                         TileTypes[y, x] = TileType.Wall;
                     }
+                    
                     else
                     {
                         TileTypes[y, x] = TileType.Empty;
                     }
                 }
             }
+            TileTypes[1, 1] = TileType.Player;
+            TileTypes[5, 5] = TileType.Menu;
         }
 
         public void Render(Player player, MonsterManager monster)
@@ -78,53 +84,28 @@ namespace Console_Project
                         Console.ForegroundColor = MapColor(TileType.Wall);
                         Console.Write(RECTANGLE);
                     }
-                    
-                }
-
-                Console.WriteLine();
-            }
-            Console.SetCursorPosition(0, 0);
-
-            for (int y = 0; y < Size; y++)
-            {
-                for (int x = 0; x < Size; x++)
-                {
-                    if (y == player.PlayerPosY && x == player.PlayerPosX)
+                    else if (TileTypes[x, y] == TileType.Player)
                     {
                         Console.ForegroundColor = MapColor(TileType.Player);
                         Console.Write(Player);
                     }
-                }
-                Console.WriteLine();
-            }
-            Console.SetCursorPosition(0, 0);
-            
-            for (int y = 0; y < Size; y++)
-            {
-                for (int x = 0; x < Size; x++)
-                {
-                    for(int i = 0; i < monster.FirstMapNomalMonster.Count; i++)
+                    else if(TileTypes[x, y] == TileType.Menu)
                     {
-                        if (y == monster.FirstMapNomalMonster[i].MonsterPosY && x == monster.FirstMapNomalMonster[i].MonsterPosX)
-                        {
-                            Console.ForegroundColor = MapColor(TileType.Monster);
-                            Console.Write(Monster);
-                        }
+                        Console.ForegroundColor = MapColor(TileType.Menu);
+                        Console.Write(Menu);
                     }
-                }
-                Console.WriteLine();
-            }
-            Console.SetCursorPosition(0, 0);
-            for (int y = 0; y < Size; y++)
-            {
-                for (int x = 0; x < Size; x++)
-                {
-                    if (y == monster.ReturnBossMonster().MonsterPosY && x == monster.ReturnBossMonster().MonsterPosX)
+                    else if (TileTypes[x, y] == TileType.Monster)
+                    {
+                        Console.ForegroundColor = MapColor(TileType.Monster);
+                        Console.Write(Monster);
+                    }
+                    else if (TileTypes[x, y] == TileType.BossMonster)
                     {
                         Console.ForegroundColor = MapColor(TileType.BossMonster);
                         Console.Write(BossMonster);
                     }
                 }
+
                 Console.WriteLine();
             }
             Console.SetCursorPosition(0, 0);

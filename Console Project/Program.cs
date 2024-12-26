@@ -35,19 +35,19 @@ namespace Console_Project
                     inputKey = Console.ReadKey(true);
                     if (inputKey.Key == ConsoleKey.UpArrow)
                     {
-                        myPlayer.MoveForward(map);
+                        myPlayer.MoveForward(map, battle, monster, myPlayer);
                     }
                     else if (inputKey.Key == ConsoleKey.DownArrow)
                     {
-                        myPlayer.MoveBackward(map);
+                        myPlayer.MoveBackward(map, battle, monster, myPlayer);
                     }
                     else if (inputKey.Key == ConsoleKey.RightArrow)
                     {
-                        myPlayer.MoveRight(map);
+                        myPlayer.MoveRight(map, battle, monster, myPlayer);
                     }
                     else if (inputKey.Key == ConsoleKey.LeftArrow)
                     {
-                        myPlayer.MoveLeft(map);
+                        myPlayer.MoveLeft(map, battle, monster, myPlayer);
                     }
                 }
                 map.Render(myPlayer, monster);

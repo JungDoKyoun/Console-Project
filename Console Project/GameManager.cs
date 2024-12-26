@@ -25,7 +25,7 @@ namespace Console_Project
                 {
                     Player player = new Player(10, 10, 10, 10);
                     MonsterManager monster = new MonsterManager();
-                    Map map = new Map();
+                    Queue<Map> maps = new Queue<Map>();
                     ShopNPC shopNPC = new ShopNPC();
                     HouseNPC houseNPC = new HouseNPC();
                     player.CreateInven();
@@ -60,6 +60,11 @@ namespace Console_Project
                         else if(inputNum == 2)
                         {
                             shopNPC.Interact(player);
+                        }
+
+                        else if( inputNum == 3)
+                        {
+
                         }
                     }
 
