@@ -57,7 +57,7 @@ namespace Console_Project
             {
                 Console.WriteLine("어서 오세요 무엇을 하시겠습니까??");
                 Console.WriteLine("--------------------------------------");
-                Console.WriteLine("1. 아이템 구입\n2. 아이템 판매\n0. 메인 메뉴");
+                Console.WriteLine("1. 아이템 구입\n2. 아이템 판매\n0. 마을로");
                 Console.WriteLine("--------------------------------------");
                 keyInfo = Console.ReadKey(true);
 

@@ -8,7 +8,65 @@ namespace Console_Project
 {
     internal class GameManager
     {
-        Player player = new Player(10, 10, 10, 10);
+        public void StartGame()
+        {
+            
+            while(true)
+            {
+                Console.WriteLine("게임을 시작 하려면 1번키, 종료하려면 0번 키를 누르세요");
+                int inputNum = int.Parse(Console.ReadLine());
+                if(inputNum == 0)
+                {
+                    Console.WriteLine("게임을 종료합니다");
+                    break;
+                }
+
+                else if(inputNum == 1)
+                {
+                    Player player = new Player(10, 10, 10, 10);
+                    MonsterManager monster = new MonsterManager();
+                    Map map = new Map();
+                    ShopNPC shopNPC = new ShopNPC();
+                    HouseNPC houseNPC = new HouseNPC();
+                    player.CreateInven();
+                    player.CreatePlayerSkillSlot();
+                    shopNPC.CreateShopInven();
+                    shopNPC.AddShopItem();
+                    ConsoleKeyInfo myKey = new ConsoleKeyInfo();
+                    while(true)
+                    {
+                        if(myKey.Key == ConsoleKey.I)
+                        {
+                            player.ShowPlayerInven();
+                        }
+                        else if(myKey.Key == ConsoleKey.C)
+                        {
+                            player.EquipmentSet();
+                        }
+                        Console.WriteLine("현재 위치는 마을입니다 갈 곳을 선택해 주세요");
+                        Console.WriteLine("----------------------------------");
+                        Console.WriteLine("1. 집\t2. 상점\t3. 사냥터");
+                        inputNum = int.Parse(Console.ReadLine());
+
+                        if (inputNum == 0)
+                        {
+                            break;
+                        }
+                        if (inputNum == 1)
+                        {
+                            houseNPC.Interact(player);
+                        }
+                        else if(inputNum == 2)
+                        {
+                            shopNPC.Interact(player);
+                        }
+                    }
+
+                }
+            }
+            
+
+        }
         
         
         //while (true)
@@ -37,6 +95,6 @@ namespace Console_Project
         //    }
 
         //}
-        battle.NomalMonsterBattle(myPlayer, monster);
+        
     }
 }

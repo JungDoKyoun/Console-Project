@@ -150,7 +150,6 @@ namespace Console_Project
                 monster.MonsterMP = 0;
                 player.PlayerExp += monster.MonsterGiveExp;
                 player.PlayerMoney += monster.MonsterGiveMoney;
-                isWin = true;
                 Console.WriteLine($"{monster.MonsterName}과의 싸움에서 승리하였습니다!!");
                 Console.WriteLine($"{monster.MonsterGiveExp}만큼의 경험치와 {monster.MonsterGiveMoney}만큼의 돈을 획득하였습니다");
                 
