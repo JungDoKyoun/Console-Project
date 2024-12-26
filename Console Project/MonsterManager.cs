@@ -36,13 +36,30 @@ namespace Console_Project
 
         }
 
+        public void SetBossMonster(Map map)
+        {
+            FirstMapBossMonster = new List<Monster>();
+            FirstMapBossMonster.Add(new BossMonster("고블린 족장", 5, 100, 10, 20, 6, 25, 300, 8, 8));
+        }
+
         public Monster ReturnMonster()
         {
+            Monster monster = new NomalMonster();
             for(int i = 0; i < FirstMapNomalMonster.Count; i++)
             {
-                return FirstMapNomalMonster[i];
+                monster = FirstMapNomalMonster[i];
             }
-            return null;
+            return monster;
+        }
+
+        public Monster ReturnBossMonster()
+        {
+            Monster bossMonster = new BossMonster();
+            for(int i = 0; i< FirstMapBossMonster.Count; i++)
+            {
+                bossMonster = FirstMapBossMonster[i];
+            }
+            return bossMonster;
         }
         public void PrintBattleMonsterInfo()
         {

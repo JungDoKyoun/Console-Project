@@ -13,10 +13,11 @@ namespace Console_Project
         const char RECTANGLE = '■';
         const char Player = '★';
         const char Monster = '◈';
+        const char BossMonster = '♣';
 
         public enum TileType
         {
-            Empty, Wall, Player, Monster
+            Empty, Wall, Player, Monster, BossMonster
         }
 
         ConsoleColor MapColor(TileType type)
@@ -31,6 +32,8 @@ namespace Console_Project
                     return ConsoleColor.Blue;
                 case TileType.Monster:
                     return ConsoleColor.Red;
+                case TileType.BossMonster:
+                    return ConsoleColor.Yellow;
                 default:
                     return ConsoleColor.Green;
             }
@@ -74,6 +77,11 @@ namespace Console_Project
                     {
                         Console.ForegroundColor = MapColor(TileType.Monster);
                         Console.Write(Monster);
+                    }
+                    else if(y == monster.ReturnBossMonster().MonsterPosY && x == monster.ReturnBossMonster().MonsterPosX)
+                    {
+                        Console.ForegroundColor = MapColor(TileType.BossMonster);
+                        Console.Write(BossMonster);
                     }
                     else
                     {
