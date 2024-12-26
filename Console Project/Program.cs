@@ -53,7 +53,6 @@ namespace Console_Project
                 map.Render(myPlayer, monster);
 
             }
-            battle.NomalMonsterBattle(myPlayer, monster);
         }
     }
 }

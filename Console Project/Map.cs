@@ -66,6 +66,7 @@ namespace Console_Project
             TileTypes[5, 5] = TileType.Menu;
         }
 
+
         public void Render(Player player, MonsterManager monster)
         {
             ConsoleColor prevColor = Console.ForegroundColor;

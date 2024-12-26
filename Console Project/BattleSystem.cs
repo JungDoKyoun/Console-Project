@@ -15,19 +15,25 @@ namespace Console_Project
         {
             while(true)
             {
+                Console.Clear();
                 player.PrintBattlePlayerInfo();
                 Console.WriteLine();
                 monster.PrintBattleMonsterInfo();
                 PlayerChooseAttack(player, monster.ReturnMonster());
                 if(isRun == true)
                 {
+                    Thread.Sleep(1000);
+                    Console.Clear();
                     break;
                 }
                 else if(monster.ReturnMonster().MonsterHP == 0 || monster.ReturnMonster().MonsterHP < 0)
                 {
                     NomalMonsterBattleWin(player, monster.ReturnMonster());
                     monster.FirstMapNomalMonster.Remove(monster.ReturnMonster());
+                    Thread.Sleep(1000);
+                    Console.Clear();
                     break;
+
                 }
                 Thread.Sleep(1000);
                 Console.Clear();

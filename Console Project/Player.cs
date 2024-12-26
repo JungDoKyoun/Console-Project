@@ -418,7 +418,7 @@ namespace Console_Project
                 PlayerPosY--;
                 map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Player;
             }
-            else if (map.TileTypes[PlayerPosX, PlayerPosY + 1] == Map.TileType.Monster)
+            else if (map.TileTypes[PlayerPosX, PlayerPosY - 1] == Map.TileType.Monster)
             {
                 battleSystem.NomalMonsterBattle(player, monster);
             }
@@ -437,7 +437,7 @@ namespace Console_Project
                 PlayerPosX++;
                 map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Player;
             }
-            else if (map.TileTypes[PlayerPosX, PlayerPosY + 1] == Map.TileType.Monster)
+            else if (map.TileTypes[PlayerPosX + 1, PlayerPosY] == Map.TileType.Monster)
             {
                 battleSystem.NomalMonsterBattle(player, monster);
             }
@@ -456,9 +456,10 @@ namespace Console_Project
                 PlayerPosX--;
                 map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Player;
             }
-            else if (map.TileTypes[PlayerPosX, PlayerPosY + 1] == Map.TileType.Monster)
+            else if (map.TileTypes[PlayerPosX - 1, PlayerPosY] == Map.TileType.Monster)
             {
                 battleSystem.NomalMonsterBattle(player, monster);
+                
             }
         }
 
