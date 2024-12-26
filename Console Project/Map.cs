@@ -57,7 +57,7 @@ namespace Console_Project
             }
         }
 
-        public void Render(Player player, Monster monster)
+        public void Render(Player player, MonsterManager monster)
         {
             ConsoleColor prevColor = Console.ForegroundColor;
 
@@ -70,7 +70,7 @@ namespace Console_Project
                         Console.ForegroundColor = MapColor(TileType.Player);
                         Console.Write(Player);
                     }
-                    else if(y == monster.MonsterPosY && x == monster.MonsterPosX)
+                    else if(y == monster.ReturnMonster().MonsterPosY && x == monster.ReturnMonster().MonsterPosX)
                     {
                         Console.ForegroundColor = MapColor(TileType.Monster);
                         Console.Write(Monster);

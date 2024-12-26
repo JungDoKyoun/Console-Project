@@ -12,18 +12,18 @@ namespace Console_Project
         static void Main(string[] args)
         {
             Player myPlayer = new Player(10, 10, 10, 10);
-            Monster monster = new NomalMonster();
+            MonsterManager monster = new MonsterManager();
             Map map = new Map();
             ShopNPC shopNPC = new ShopNPC();
             NPC[] npc = new NPC[] { shopNPC };
             ConsoleKeyInfo inputKey;
             map.Initialize(10);
             myPlayer.SetPlayerPos();
+            monster.SetMonster(map);
             Console.CursorVisible = false;
             myPlayer.CreateInven();
             myPlayer.CreatePlayerSkillSlot();
             BattleSystem battle = new BattleSystem();
-            battle.NomalMonsterBattle(myPlayer, monster);
 
             while (true)
             {
@@ -46,11 +46,12 @@ namespace Console_Project
                     {
                         myPlayer.MoveLeft(map);
                     }
+                    monster.SetMonster(map);
+                    map.Render(myPlayer, monster);
                 }
-                monster.SetMonster(map);
-                map.Render(myPlayer, monster);
                    
             }
+            battle.NomalMonsterBattle(myPlayer, monster);
         }
     }
 }

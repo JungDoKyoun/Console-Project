@@ -10,16 +10,19 @@ namespace Console_Project
     internal class BattleSystem
     {
         bool isRun = false;
-        public void NomalMonsterBattle(Player player, Monster monster)
+        public void NomalMonsterBattle(Player player, MonsterManager monster)
         {
             while(true)
             {
-                PlayerChooseAttack(player, monster);
+                player.PrintBattlePlayerInfo();
+                Console.WriteLine();
+                monster.PrintBattleMonsterInfo();
+                PlayerChooseAttack(player, monster.ReturnMonster());
                 if(isRun == true)
                 {
                     break;
                 }
-                NomalMonsterAttackPlayer(player, monster);
+                NomalMonsterAttackPlayer(player, monster.ReturnMonster());
             }
             
 
@@ -29,9 +32,7 @@ namespace Console_Project
             while(true)
             {
                 Console.WriteLine($"{monster.MonsterName}을 만났다!!!");
-                player.PrintBattlePlayerInfo();
                 Console.WriteLine();
-                monster.();
                 Console.WriteLine("행동을 선택하여 주세요");
                 Console.WriteLine();
                 Console.WriteLine("1. 일반공격\t2. 스킬사용\t3. 아이템사용\t4. 도주");

@@ -24,8 +24,9 @@ namespace Console_Project
                 {
                     FirstMapNomalMonster.Add(new NomalMonster("슬라임", 1, 30, 0, 10, 3, 10, 100, PosX, PosY));
                     _firstMapNomalMonsterCount++;
+                    
                 }
-                else if (ran == 1)
+                else
                 {
                     FirstMapNomalMonster.Add(new NomalMonster("고블린", 1, 40, 0, 12, 0, 13, 120, PosX, PosY));
                     _firstMapNomalMonsterCount++;
@@ -34,15 +35,22 @@ namespace Console_Project
 
         }
 
-        public void PrintBattleMonsterInfo()
+        public Monster ReturnMonster()
         {
             for(int i = 0; i < FirstMapNomalMonster.Count; i++)
             {
-                Console.WriteLine($"{FirstMapNomalMonster[i].MonsterName}의 상태창");
-                Console.WriteLine("--------------------------------------");
-                Console.WriteLine($"{FirstMapNomalMonster[i].MonsterName}의 HP : {FirstMapNomalMonster[i].MonsterHP}");
-                Console.WriteLine("--------------------------------------");
+                return FirstMapNomalMonster[i];
             }
+            return null;
+        }
+        public void PrintBattleMonsterInfo()
+        {
+            
+                Console.WriteLine($"{ReturnMonster().MonsterName}의 상태창");
+                Console.WriteLine("--------------------------------------");
+                Console.WriteLine($"{ReturnMonster().MonsterName}의 HP : {ReturnMonster().MonsterHP}");
+                Console.WriteLine("--------------------------------------");
+            
         }
     }
 }
