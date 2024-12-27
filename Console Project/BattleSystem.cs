@@ -11,23 +11,48 @@ namespace Console_Project
     {
         bool isRun = false;
         bool isEnd = false;
+        bool isNonSkill = false;
         ConsoleKeyInfo myKey = new ConsoleKeyInfo();
+        PrintPicter print = new PrintPicter();
         
         public void NomalMonsterBattle(Player player, MonsterManager monster, Map map, int x, int y)
         {
             while(true)
             {
+                Thread.Sleep(1000);
                 Console.Clear();
+                if(monster.ReturnMonster(map, x, y).MonsterName == "슬라임")
+                {
+                    print.PrintSlime();
+                }
+                else if(monster.ReturnMonster(map, x, y).MonsterName == "고블린")
+                {
+                    print.PrintGoblin();
+                }
+                else if (monster.ReturnMonster(map, x, y).MonsterName == "고블린 전사")
+                {
+                    print.PrintWarGoblin();
+                }
+                else if (monster.ReturnMonster(map, x, y).MonsterName == "고블린 근위병")
+                {
+                    print.PrintEliteGoblin();
+                }
                 player.PrintBattlePlayerInfo();
                 Console.WriteLine();
                 monster.PrintBattleMonsterInfo(map, x, y);
+                
                 PlayerChooseAttack(player, monster.ReturnMonster(map, x, y));
-                if(isRun == true)
+                if (isRun == true)
                 {
                     isRun = false;
                     Thread.Sleep(1000);
                     Console.Clear();
                     break;
+                }
+                else if(isNonSkill == true)
+                {
+                    isNonSkill = false;
+                    continue;
                 }
                 else if(monster.ReturnMonster(map, x, y).MonsterHP == 0 || monster.ReturnMonster(map, x, y).MonsterHP < 0)
                 {
@@ -82,7 +107,9 @@ namespace Console_Project
         {
             while (true)
             {
+                Thread.Sleep(1000);
                 Console.Clear();
+                print.PrintBossGoblin();
                 player.PrintBattlePlayerInfo();
                 Console.WriteLine();
                 monster.PrintBattleBossMonsterInfo();
@@ -180,6 +207,8 @@ namespace Console_Project
         }
         public void PlayerAttackMonster(Player player, Monster monster)
         {
+            Thread.Sleep(1000);
+            Console.Clear();
             Console.WriteLine($"{monster.MonsterName}을 공격하였다!!");
             monster.MonsterHP -= player.Damage - monster.MonsterDefensivePower;
             Console.WriteLine($"{monster.MonsterName}에게 {player.Damage - monster.MonsterDefensivePower}만큼의 피해를 입혔습니다");
@@ -187,20 +216,28 @@ namespace Console_Project
 
         public void PlayerUseSkill(Player player, Monster monster)
         {
-            while(true)
+            Thread.Sleep(1000);
+            Console.Clear();
+            while (true)
             {
                 if (player.PlayerSkills.Count == 0)
                 {
                     Console.WriteLine("사용 할 수 있는 스킬이 없습니다");
+                    isNonSkill = true;
                     break;
                 }
+                
                 Console.WriteLine("사용할 스킬을 선택하세요 (0번을 누르면 이전 화면으로 넘어갑니다)");
                 Console.WriteLine();
                 player.PrintPlayerSkill();
                 Console.WriteLine();
                 bool isCorrect = int.TryParse(Console.ReadLine(), out int inputNum);
 
-                if(inputNum == 0)
+                if(isCorrect == false)
+                {
+                    continue;
+                }
+                else if(inputNum == 0)
                 {
                     break;
                 }

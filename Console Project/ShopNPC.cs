@@ -23,7 +23,15 @@ namespace Console_Project
         }
         public void AddShopItem()
         {
-            ShopItems.Add(new Item("장검", 20, 200 ,ItemType.Weapon));
+            ShopItems.Add(new Item("장검", 10, 500 ,ItemType.Weapon));
+            ShopItems.Add(new Item("불검", 30, 2000, ItemType.Weapon));
+            ShopItems.Add(new Item("빛의 검", 60, 5000, ItemType.Weapon));
+            ShopItems.Add(new Item("가죽 갑옷", 3, 500, ItemType.Armor));
+            ShopItems.Add(new Item("플레이트 갑옷", 10, 10000, ItemType.Armor));
+            ShopItems.Add(new Item("빨간물약", 50, 200, ItemType.UsableHP));
+            ShopItems.Add(new Item("파란물약", 50, 200, ItemType.UsableMP));
+            ShopItems.Add(new Item("빨간물약 대", 100, 500, ItemType.UsableHP));
+            ShopItems.Add(new Item("파란물약 대", 100, 500, ItemType.UsableMP));
         }
 
         public void ShowShopItem()

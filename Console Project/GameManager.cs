@@ -11,12 +11,14 @@ namespace Console_Project
     {
         public void StartGame()
         {
-            Player player = new Player(10, 10, 1000, 10);
+            Console.SetWindowSize(100, 35);
+            Player player = new Player(100, 100, 200, 5);
             Map map = new Map();
             MonsterManager monster = new MonsterManager();
             ShopNPC shopNPC = new ShopNPC();
             HouseNPC houseNPC = new HouseNPC();
             BattleSystem battleSystem = new BattleSystem();
+            PrintPicter pic = new PrintPicter();
             player.CreateInven();
             player.CreatePlayerSkillSlot();
             shopNPC.CreateShopInven();
@@ -31,6 +33,7 @@ namespace Console_Project
             while (true)
             {
                 Console.Title = "우리 마을 앞에 고블린 부락이 생겼다";
+                pic.PrintTitle();
                 Console.WriteLine("게임을 시작 하려면 1번키, 종료하려면 0번 키를 누르세요");
                 bool isStart = int.TryParse(Console.ReadLine(), out int inputNum);
                 

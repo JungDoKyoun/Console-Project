@@ -32,15 +32,15 @@ namespace Console_Project
         public Player(int hp, int mp, int damage, int defensivePower)
         {
             Name = "한스";
-            PlayerLevel = 1;
-            PlayerExp = 0;
+            PlayerLevel = 4;
+            PlayerExp = 99;
             HP = hp;
             MP = mp;
             Damage = damage;
             DefensivePower = defensivePower;
             PlayerMoney = 100;
-            _weaponItem[0] = new Item("낡은 장검", 10, 0, ItemType.Weapon);
-            _armorItem[0] = new Item("낡은 갑옷", 5, 0, ItemType.Armor);
+            _weaponItem[0] = new Item("낡은 장검", 5, 0, ItemType.Weapon);
+            _armorItem[0] = new Item("낡은 갑옷", 1, 0, ItemType.Armor);
         }
 
         public void SetPlayerPos()
@@ -328,7 +328,22 @@ namespace Console_Project
                 HP = 100;
                 MP = 100;
                 Damage += 10;
-                DefensivePower += 5;
+                DefensivePower += 1;
+                if (PlayerLevel == 5)
+                {
+                    Console.WriteLine("스킬 강타를 획득하였다!!");
+                    PlayerSkills.Add(new SkillSmite("강타", "공격력 + 10만큼의 데미지를 준다", Damage + 10, 5));
+                }
+                else if (PlayerLevel == 15)
+                {
+                    Console.WriteLine("스킬 트리플 슬래쉬를 획득하였다!!");
+                    PlayerSkills.Add(new SkillTrippleSlash("트리플 슬래쉬", "공격력 + 20만큼의 데미지를 준다", Damage + 20, 10));
+                }
+                else if (PlayerLevel == 25)
+                {
+                    Console.WriteLine("스킬 신성 강타를 획득하였다!!");
+                    PlayerSkills.Add(new SkillHolySmite("신성 강타", "공격력 두배 만큼의 데미지를 준다", Damage * 2, 20));
+                }
             }
             else if(PlayerExp > 100)
             {
@@ -339,19 +354,22 @@ namespace Console_Project
                 HP = 100;
                 MP = 100;
                 Damage += 10;
-                DefensivePower += 5;
-            }
-            if(PlayerLevel == 5)
-            {
-                PlayerSkills.Add(new SkillSmite("강타", "공격력 + 10만큼의 데미지를 준다", Damage + 10, 5));
-            }
-            else if(PlayerLevel == 15)
-            {
-                PlayerSkills.Add(new SkillTrippleSlash("트리플 슬래쉬", "공격력 + 20만큼의 데미지를 준다", Damage + 20, 10));
-            }
-            else if(PlayerLevel == 25)
-            {
-                PlayerSkills.Add(new SkillHolySmite("신성 강타", "공격력 두배 만큼의 데미지를 준다", Damage * 2, 20));
+                DefensivePower += 1;
+                if (PlayerLevel == 5)
+                {
+                    Console.WriteLine("스킬 강타를 획득하였다!!");
+                    PlayerSkills.Add(new SkillSmite("강타", "공격력 + 10만큼의 데미지를 준다", Damage + 10, 5));
+                }
+                else if (PlayerLevel == 15)
+                {
+                    Console.WriteLine("스킬 트리플 슬래쉬를 획득하였다!!");
+                    PlayerSkills.Add(new SkillTrippleSlash("트리플 슬래쉬", "공격력 + 20만큼의 데미지를 준다", Damage + 20, 10));
+                }
+                else if (PlayerLevel == 25)
+                {
+                    Console.WriteLine("스킬 신성 강타를 획득하였다!!");
+                    PlayerSkills.Add(new SkillHolySmite("신성 강타", "공격력 두배 만큼의 데미지를 준다", Damage * 2, 20));
+                }
             }
         }
 
@@ -383,11 +401,19 @@ namespace Console_Project
                     if (usableitem[inputNum].ItemType == ItemType.UsableHP)
                     {
                         HP += usableitem[inputNum].ItemEffect;
+                        if(HP > 100)
+                        {
+                            HP = 100;
+                        }
                         Console.WriteLine($"HP가 {usableitem[inputNum].ItemEffect}만큼 회복되었습니다");
                     }
                     else if (usableitem[inputNum].ItemType == ItemType.UsableMP)
                     {
                         MP += usableitem[inputNum].ItemEffect;
+                        if (MP > 100)
+                        {
+                            MP = 100;
+                        }
                         Console.WriteLine($"MP가 {usableitem[inputNum].ItemEffect}만큼 회복되었습니다");
                     }
                 }
