@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -117,12 +118,25 @@ namespace Console_Project
         }
         
 
-        public Monster ReturnMonster()
+        public Monster ReturnMonster(Map map)
         {
             Monster monster = new NomalMonster();
-            for(int i = 0; i < FirstMapNomalMonster.Count; i++)
+            for(int y = 0; y < map.Size2; y++)
             {
-                monster = FirstMapNomalMonster[i];
+                for(int x  = 0; x < map.Size1; x++)
+                {
+                    if (map.TileTypes[y, x] == Map.TileType.Monster)
+                    {
+                        for (int i = 0; i < FirstMapNomalMonster.Count; i++)
+                        {
+                            if (y == FirstMapNomalMonster[i].MonsterPosX && x == FirstMapNomalMonster[i].MonsterPosY)
+                            {
+                                monster = FirstMapNomalMonster[i];
+                            }
+                        }
+                    }
+                    
+                }
             }
             return monster;
         }
@@ -137,12 +151,12 @@ namespace Console_Project
             return bossMonster;
         }
         
-        public void PrintBattleMonsterInfo()
+        public void PrintBattleMonsterInfo(Map map)
         {
             
-                Console.WriteLine($"{ReturnMonster().MonsterName}의 상태창");
+                Console.WriteLine($"{ReturnMonster(map).MonsterName}의 상태창");
                 Console.WriteLine("--------------------------------------");
-                Console.WriteLine($"{ReturnMonster().MonsterName}의 HP : {ReturnMonster().MonsterHP}");
+                Console.WriteLine($"{ReturnMonster(map).MonsterName}의 HP : {ReturnMonster(map).MonsterHP}");
                 Console.WriteLine("--------------------------------------");
             
         }

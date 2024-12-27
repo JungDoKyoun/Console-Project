@@ -18,8 +18,8 @@ namespace Console_Project
                 Console.Clear();
                 player.PrintBattlePlayerInfo();
                 Console.WriteLine();
-                monster.PrintBattleMonsterInfo();
-                PlayerChooseAttack(player, monster.ReturnMonster());
+                monster.PrintBattleMonsterInfo(map);
+                PlayerChooseAttack(player, monster.ReturnMonster(map));
                 if(isRun == true)
                 {
                     isRun = false;
@@ -27,10 +27,11 @@ namespace Console_Project
                     Console.Clear();
                     break;
                 }
-                else if(monster.ReturnMonster().MonsterHP == 0 || monster.ReturnMonster().MonsterHP < 0)
+                else if(monster.ReturnMonster(map).MonsterHP == 0 || monster.ReturnMonster(map).MonsterHP < 0)
                 {
-                    NomalMonsterBattleWin(player, monster.ReturnMonster());
-                    map.TileTypes[monster.ReturnMonster().MonsterPosX, monster.ReturnMonster().MonsterPosY] = Map.TileType.Empty;
+                    NomalMonsterBattleWin(player, monster.ReturnMonster(map));
+                    monster.FirstMapNomalMonster.Remove(monster.ReturnMonster(map));
+                    map.TileTypes[monster.ReturnMonster(map).MonsterPosX, monster.ReturnMonster(map).MonsterPosY] = Map.TileType.Empty;
                     monster.RezenMonster(map);
                     Thread.Sleep(1000);
                     Console.Clear();
@@ -40,7 +41,7 @@ namespace Console_Project
                 Thread.Sleep(1000);
                 Console.Clear();
 
-                NomalMonsterAttackPlayer(player, monster.ReturnMonster());
+                NomalMonsterAttackPlayer(player, monster.ReturnMonster(map));
                 if(PlayerLoss(player) == true)
                 {
                     Console.WriteLine("당신은 죽었습니다");

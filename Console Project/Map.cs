@@ -81,36 +81,36 @@ namespace Console_Project
         {
             ConsoleColor prevColor = Console.ForegroundColor;
 
-            for(int y = 0; y < Size1; y++)
+            for(int y = 0; y < Size2; y++)
             {
-                for(int x = 0; x < Size2; x++)
+                for(int x = 0; x < Size1; x++)
                 {
-                    if(TileType.Empty == TileTypes[x, y])
+                    if(TileType.Empty == TileTypes[y , x])
                     {
                         Console.ForegroundColor = MapColor(TileType.Empty);
                         Console.Write(RECTANGLE);
                     }
-                    else if(TileType.Wall == TileTypes[x, y])
+                    else if(TileType.Wall == TileTypes[y, x])
                     {
                         Console.ForegroundColor = MapColor(TileType.Wall);
                         Console.Write(RECTANGLE);
                     }
-                    else if (TileTypes[x, y] == TileType.Player)
+                    else if (TileTypes[y, x] == TileType.Player)
                     {
                         Console.ForegroundColor = MapColor(TileType.Player);
                         Console.Write(Player);
                     }
-                    else if(TileTypes[x, y] == TileType.Menu)
+                    else if(TileTypes[y, x] == TileType.Menu)
                     {
                         Console.ForegroundColor = MapColor(TileType.Menu);
                         Console.Write(Menu);
                     }
-                    else if (TileTypes[x, y] == TileType.Monster)
+                    else if (TileTypes[y, x] == TileType.Monster)
                     {
                         Console.ForegroundColor = MapColor(TileType.Monster);
                         Console.Write(Monster);
                     }
-                    else if (TileTypes[x, y] == TileType.BossMonster)
+                    else if (TileTypes[y, x] == TileType.BossMonster)
                     {
                         Console.ForegroundColor = MapColor(TileType.BossMonster);
                         Console.Write(BossMonster);
