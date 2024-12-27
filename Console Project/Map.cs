@@ -45,7 +45,7 @@ namespace Console_Project
 
         public void Initialize(int size1, int size2)
         {
-            TileTypes = new TileType[size2, size1];
+            TileTypes = new TileType[size1, size2];
             Size1 = size1;
             Size2 = size2;
 
@@ -55,15 +55,15 @@ namespace Console_Project
                 {
                     if(x == 0 || x == Size1 - 1 || y == 0 || y == Size2 - 1)
                     {
-                        TileTypes[y, x] = TileType.Wall;
+                        TileTypes[x, y] = TileType.Wall;
                     }
-                    else if(y == 10)
+                    else if(x == 10)
                     {
-                        TileTypes[y, x] = TileType.Wall;
+                        TileTypes[x, y] = TileType.Wall;
                     }
                     else
                     {
-                        TileTypes[y, x] = TileType.Empty;
+                        TileTypes[x, y] = TileType.Empty;
                     }
                 }
             }
@@ -85,32 +85,32 @@ namespace Console_Project
             {
                 for(int x = 0; x < Size1; x++)
                 {
-                    if(TileType.Empty == TileTypes[y , x])
+                    if(TileType.Empty == TileTypes[x, y])
                     {
                         Console.ForegroundColor = MapColor(TileType.Empty);
                         Console.Write(RECTANGLE);
                     }
-                    else if(TileType.Wall == TileTypes[y, x])
+                    else if(TileType.Wall == TileTypes[x, y])
                     {
                         Console.ForegroundColor = MapColor(TileType.Wall);
                         Console.Write(RECTANGLE);
                     }
-                    else if (TileTypes[y, x] == TileType.Player)
+                    else if (TileTypes[x, y] == TileType.Player)
                     {
                         Console.ForegroundColor = MapColor(TileType.Player);
                         Console.Write(Player);
                     }
-                    else if(TileTypes[y, x] == TileType.Menu)
+                    else if(TileTypes[x, y] == TileType.Menu)
                     {
                         Console.ForegroundColor = MapColor(TileType.Menu);
                         Console.Write(Menu);
                     }
-                    else if (TileTypes[y, x] == TileType.Monster)
+                    else if (TileTypes[x, y] == TileType.Monster)
                     {
                         Console.ForegroundColor = MapColor(TileType.Monster);
                         Console.Write(Monster);
                     }
-                    else if (TileTypes[y, x] == TileType.BossMonster)
+                    else if (TileTypes[x, y] == TileType.BossMonster)
                     {
                         Console.ForegroundColor = MapColor(TileType.BossMonster);
                         Console.Write(BossMonster);

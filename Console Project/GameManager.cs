@@ -26,7 +26,7 @@ namespace Console_Project
                 shopNPC.AddShopItem();
                 ConsoleKeyInfo myKey = new ConsoleKeyInfo();
                 Console.CursorVisible = false;
-                map.Initialize(10, 20);
+                map.Initialize(20, 10);
                 player.SetPlayerPos();
                 monster.SetMonster(map);
                 monster.SetBossMonster(map);

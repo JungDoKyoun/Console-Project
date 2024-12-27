@@ -125,11 +125,11 @@ namespace Console_Project
             {
                 for(int x  = 0; x < map.Size1; x++)
                 {
-                    if (map.TileTypes[y, x] == Map.TileType.Monster)
+                    if (map.TileTypes[x, y] == Map.TileType.Monster)
                     {
                         for (int i = 0; i < FirstMapNomalMonster.Count; i++)
                         {
-                            if (y == FirstMapNomalMonster[i].MonsterPosX && x == FirstMapNomalMonster[i].MonsterPosY)
+                            if (x == FirstMapNomalMonster[i].MonsterPosX && y == FirstMapNomalMonster[i].MonsterPosY)
                             {
                                 monster = FirstMapNomalMonster[i];
                             }
