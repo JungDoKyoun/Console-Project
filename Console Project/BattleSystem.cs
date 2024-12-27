@@ -93,10 +93,13 @@ namespace Console_Project
                 Console.Clear();
 
                 NomalMonsterAttackPlayer(player, monster.ReturnMonster(map, x, y));
-                if(PlayerLoss(player) == true)
+                Thread.Sleep(1000);
+                Console.Clear();
+                if (PlayerLoss(player) == true)
                 {
+                    print.Printloss();
                     Console.WriteLine("당신은 죽었습니다");
-                    Thread.Sleep(1000);
+                    Thread.Sleep(3000);
                     Console.Clear();
                     break;
                 }
@@ -293,6 +296,7 @@ namespace Console_Project
         {
             if(monster.MonsterHP == 0 || monster.MonsterHP < 0)
             {
+                print.PrintWin();
                 monster.MonsterHP = 0;
                 player.PlayerExp += monster.MonsterGiveExp;
                 player.PlayerMoney += monster.MonsterGiveMoney;
@@ -308,6 +312,7 @@ namespace Console_Project
         {
             if (monster.MonsterHP == 0 || monster.MonsterHP < 0)
             {
+                print.PrintWin();
                 monster.MonsterHP = 0;
                 BossDie(monster);
                 player.PlayerExp += monster.MonsterGiveExp;

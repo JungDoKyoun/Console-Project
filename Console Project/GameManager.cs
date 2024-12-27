@@ -30,10 +30,12 @@ namespace Console_Project
             monster.SetBossMonster(map);
             monster.SetBossSkillSlot(monster.ReturnBossMonster());
             monster.SetMonster(map);
+            bool isOpeningEnd = false;
             while (true)
             {
                 Console.Title = "우리 마을 앞에 고블린 부락이 생겼다";
                 pic.PrintTitle();
+                Console.WriteLine();
                 Console.WriteLine("게임을 시작 하려면 1번키, 종료하려면 0번 키를 누르세요");
                 bool isStart = int.TryParse(Console.ReadLine(), out int inputNum);
                 
@@ -50,6 +52,26 @@ namespace Console_Project
 
                 else if (inputNum == 1)
                 {
+                    while(isOpeningEnd == false)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("어느날 갑자기 마을 앞에 고블린 부락이 생겼다");
+                        Console.WriteLine();
+                        Console.WriteLine("마을의 청년 한스는 위험에 처한 마을을 구하기 위하여 고블린 부락을 소탕하기로 하는데....");
+                        Console.WriteLine();
+                        Console.WriteLine("엔터를 누르면 진행합니다");
+                        myKey = Console.ReadKey();
+                        if(myKey.Key == ConsoleKey.Enter)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            continue;
+                        }
+                    }
+                    
 
                     while (true)
                     {
@@ -137,6 +159,7 @@ namespace Console_Project
                         }
                         if (battleSystem.BossDie(monster.ReturnBossMonster()) == true)
                         {
+                            pic.PrintWin();
                             Console.WriteLine("고블린 부락을 없애 마을에 평화를 지켰습니다");
                             Console.WriteLine("엔터를 누르면 메인메뉴로 돌아갑니다");
                             while(true)

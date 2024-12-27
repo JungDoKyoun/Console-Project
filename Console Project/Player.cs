@@ -32,8 +32,8 @@ namespace Console_Project
         public Player(int hp, int mp, int damage, int defensivePower)
         {
             Name = "한스";
-            PlayerLevel = 4;
-            PlayerExp = 99;
+            PlayerLevel = 1;
+            PlayerExp = 0;
             HP = hp;
             MP = mp;
             Damage = damage;
