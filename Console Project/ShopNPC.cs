@@ -53,15 +53,20 @@ namespace Console_Project
 
         public override void Interact(Player player)
         {
-            while(true)
+            Console.Clear();
+            while (true)
             {
                 Console.WriteLine("어서 오세요 무엇을 하시겠습니까??");
                 Console.WriteLine("--------------------------------------");
                 Console.WriteLine("1. 아이템 구입\n2. 아이템 판매\n0. 마을로");
                 Console.WriteLine("--------------------------------------");
-                keyInfo = Console.ReadKey(true);
+                bool istrue = int.TryParse(Console.ReadLine(), out int myKey);
 
-                if(keyInfo.Key == ConsoleKey.D0 || keyInfo.Key == ConsoleKey.NumPad0)
+                if(istrue == false)
+                {
+                    continue;
+                }
+                else if (myKey == 0)
                 {
                     Console.WriteLine();
                     Console.WriteLine("안녕히가세요");
@@ -69,7 +74,7 @@ namespace Console_Project
                     Console.Clear();
                     break;
                 }
-                else if(keyInfo.Key == ConsoleKey.D1 || keyInfo.Key == ConsoleKey.NumPad1)
+                else if(myKey == 1)
                 {
                     Console.WriteLine("무엇을 구입하시겠습니까??");
                     ShowShopItem();
@@ -96,7 +101,7 @@ namespace Console_Project
                         Console.WriteLine($"남은 돈 : {player.PlayerMoney}");
                     }
                 }
-                else if(keyInfo.Key == ConsoleKey.D2 || keyInfo.Key == ConsoleKey.NumPad2)
+                else if(myKey == 2)
                 {
                     Console.WriteLine("무엇을 판매하시겠습니까??");
                     player.ShowPlayerSellInven();
@@ -118,6 +123,10 @@ namespace Console_Project
                         player.PlayerMoney += ShopItems[inputNum - 1].ItemPrice / 2;
                         Console.WriteLine($"남은 돈 : {player.PlayerMoney}");
                     }
+                }
+                else
+                {
+                    continue;
                 }
                 Thread.Sleep(1000);
                 Console.Clear();

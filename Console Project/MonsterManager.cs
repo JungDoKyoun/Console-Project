@@ -12,8 +12,8 @@ namespace Console_Project
         public List<Monster> FirstMapNomalMonster { get; set; }
         public List<Monster> FirstMapBossMonster { get; set;}
         public List<Skill> BossSkill { get; set; }
-        static int _firstMapNomalMonsterCount = 0;
-        static int _secondMapNomalMonsterCount = 0;
+        public static int _firstMapNomalMonsterCount = 0;
+        public static int _secondMapNomalMonsterCount = 0;
 
         Random random = new Random();
 
@@ -25,82 +25,96 @@ namespace Console_Project
                 int ran = random.Next(0, 2);
                 int PosX = random.Next(1, 9);
                 int PosY = random.Next(1, 9);
-                if (ran == 0)
+                if (map.TileTypes[PosX, PosY] == Map.TileType.Empty)
                 {
-                    FirstMapNomalMonster.Add(new NomalMonster("슬라임", 1, 30, 0, 10, 3, 10, 100, PosX, PosY, MonsterSkill.non));
-                    map.TileTypes[PosX, PosY] = Map.TileType.Monster;
-                    _firstMapNomalMonsterCount++;
-                    
+                    if (ran == 0)
+                    {
+                        FirstMapNomalMonster.Add(new NomalMonster("슬라임", 1, 30, 0, 10, 3, 10, 100, PosX, PosY, MonsterSkill.non));
+                        map.TileTypes[PosX, PosY] = Map.TileType.Monster;
+                        _firstMapNomalMonsterCount++;
+
+                    }
+                    else
+                    {
+                        FirstMapNomalMonster.Add(new NomalMonster("고블린", 1, 40, 0, 12, 0, 13, 120, PosX, PosY, MonsterSkill.non));
+                        map.TileTypes[PosX, PosY] = Map.TileType.Monster;
+                        _firstMapNomalMonsterCount++;
+                    }
                 }
-                else
-                {
-                    FirstMapNomalMonster.Add(new NomalMonster("고블린", 1, 40, 0, 12, 0, 13, 120, PosX, PosY, MonsterSkill.non));
-                    map.TileTypes[PosX, PosY] = Map.TileType.Monster;
-                    _firstMapNomalMonsterCount++;
-                }
+                
             }
             while (_secondMapNomalMonsterCount < 3)
             {
                 int ran = random.Next(0, 2);
                 int PosX = random.Next(11, 19);
                 int PosY = random.Next(1, 9);
-                if (ran == 0)
+                if (map.TileTypes[PosX, PosY] == Map.TileType.Empty)
                 {
-                    FirstMapNomalMonster.Add(new NomalMonster("고블린 전사", 10, 80, 0, 20, 10, 25, 400, PosX, PosY, MonsterSkill.non));
-                    map.TileTypes[PosX, PosY] = Map.TileType.Monster;
-                    _secondMapNomalMonsterCount++;
+                    if (ran == 0)
+                    {
+                        FirstMapNomalMonster.Add(new NomalMonster("고블린 전사", 10, 80, 0, 20, 10, 25, 400, PosX, PosY, MonsterSkill.non));
+                        map.TileTypes[PosX, PosY] = Map.TileType.Monster;
+                        _secondMapNomalMonsterCount++;
 
+                    }
+                    else
+                    {
+                        FirstMapNomalMonster.Add(new NomalMonster("고블린 근위병", 15, 150, 0, 30, 15, 40, 600, PosX, PosY, MonsterSkill.non));
+                        map.TileTypes[PosX, PosY] = Map.TileType.Monster;
+                        _secondMapNomalMonsterCount++;
+                    }
                 }
-                else
-                {
-                    FirstMapNomalMonster.Add(new NomalMonster("고블린 근위병", 15, 150, 0, 30, 15, 40, 600, PosX, PosY, MonsterSkill.non));
-                    map.TileTypes[PosX, PosY] = Map.TileType.Monster;
-                    _secondMapNomalMonsterCount++;
-                }
+                    
             }
 
         }
-
+        
         public void RezenMonster(Map map)
         {
-            _firstMapNomalMonsterCount--;
+            
             while (_firstMapNomalMonsterCount < 3)
             {
                 int ran = random.Next(0, 2);
                 int PosX = random.Next(1, 9);
                 int PosY = random.Next(1, 9);
-                if (ran == 0)
+                if (map.TileTypes[PosX, PosY] == Map.TileType.Empty)
                 {
-                    FirstMapNomalMonster.Add(new NomalMonster("슬라임", 1, 30, 0, 10, 3, 10, 100, PosX, PosY, MonsterSkill.non));
-                    map.TileTypes[PosX, PosY] = Map.TileType.Monster;
-                    _firstMapNomalMonsterCount++;
+                    if (ran == 0)
+                    {
+                        FirstMapNomalMonster.Add(new NomalMonster("슬라임", 1, 30, 0, 10, 3, 10, 100, PosX, PosY, MonsterSkill.non));
+                        map.TileTypes[PosX, PosY] = Map.TileType.Monster;
+                        _firstMapNomalMonsterCount++;
 
-                }
-                else
-                {
-                    FirstMapNomalMonster.Add(new NomalMonster("고블린", 1, 40, 0, 12, 0, 13, 120, PosX, PosY, MonsterSkill.non));
-                    map.TileTypes[PosX, PosY] = Map.TileType.Monster;
-                    _firstMapNomalMonsterCount++;
+                    }
+                    else
+                    {
+                        FirstMapNomalMonster.Add(new NomalMonster("고블린", 1, 40, 0, 12, 0, 13, 120, PosX, PosY, MonsterSkill.non));
+                        map.TileTypes[PosX, PosY] = Map.TileType.Monster;
+                        _firstMapNomalMonsterCount++;
+                    }
                 }
             }
-            _secondMapNomalMonsterCount--;
+            
             while (_secondMapNomalMonsterCount < 3)
             {
                 int ran = random.Next(0, 2);
                 int PosX = random.Next(11, 19);
                 int PosY = random.Next(1, 9);
-                if (ran == 0)
+                if (map.TileTypes[PosX, PosY] == Map.TileType.Empty)
                 {
-                    FirstMapNomalMonster.Add(new NomalMonster("고블린 전사", 10, 80, 0, 20, 10, 25, 400, PosX, PosY, MonsterSkill.non));
-                    map.TileTypes[PosX, PosY] = Map.TileType.Monster;
-                    _secondMapNomalMonsterCount++;
+                    if (ran == 0)
+                    {
+                        FirstMapNomalMonster.Add(new NomalMonster("고블린 전사", 10, 80, 0, 20, 10, 25, 400, PosX, PosY, MonsterSkill.non));
+                        map.TileTypes[PosX, PosY] = Map.TileType.Monster;
+                        _secondMapNomalMonsterCount++;
 
-                }
-                else
-                {
-                    FirstMapNomalMonster.Add(new NomalMonster("고블린 근위병", 15, 150, 0, 30, 15, 40, 600, PosX, PosY, MonsterSkill.non));
-                    map.TileTypes[PosX, PosY] = Map.TileType.Monster;
-                    _secondMapNomalMonsterCount++;
+                    }
+                    else
+                    {
+                        FirstMapNomalMonster.Add(new NomalMonster("고블린 근위병", 15, 150, 0, 30, 15, 40, 600, PosX, PosY, MonsterSkill.non));
+                        map.TileTypes[PosX, PosY] = Map.TileType.Monster;
+                        _secondMapNomalMonsterCount++;
+                    }
                 }
             }
 
@@ -118,26 +132,18 @@ namespace Console_Project
         }
         
 
-        public Monster ReturnMonster(Map map)
+        public Monster ReturnMonster(Map map, int x, int y)
         {
             Monster monster = new NomalMonster();
-            for(int y = 0; y < map.Size2; y++)
+           
+            for (int i = 0; i < FirstMapNomalMonster.Count; i++)
             {
-                for(int x  = 0; x < map.Size1; x++)
+                if (x == FirstMapNomalMonster[i].MonsterPosX && y == FirstMapNomalMonster[i].MonsterPosY)
                 {
-                    if (map.TileTypes[x, y] == Map.TileType.Monster)
-                    {
-                        for (int i = 0; i < FirstMapNomalMonster.Count; i++)
-                        {
-                            if (x == FirstMapNomalMonster[i].MonsterPosX && y == FirstMapNomalMonster[i].MonsterPosY)
-                            {
-                                monster = FirstMapNomalMonster[i];
-                            }
-                        }
-                    }
-                    
+                    monster = FirstMapNomalMonster[i];
                 }
             }
+                    
             return monster;
         }
 
@@ -151,12 +157,12 @@ namespace Console_Project
             return bossMonster;
         }
         
-        public void PrintBattleMonsterInfo(Map map)
+        public void PrintBattleMonsterInfo(Map map, int x, int y)
         {
             
-                Console.WriteLine($"{ReturnMonster(map).MonsterName}의 상태창");
+                Console.WriteLine($"{ReturnMonster(map, x ,y).MonsterName}의 상태창");
                 Console.WriteLine("--------------------------------------");
-                Console.WriteLine($"{ReturnMonster(map).MonsterName}의 HP : {ReturnMonster(map).MonsterHP}");
+                Console.WriteLine($"{ReturnMonster(map, x, y).MonsterName}의 HP : {ReturnMonster(map, x, y).MonsterHP}");
                 Console.WriteLine("--------------------------------------");
             
         }

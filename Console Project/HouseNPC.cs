@@ -17,9 +17,15 @@ namespace Console_Project
         {
             while(true)
             {
+                Console.Clear();
+                player.PrintPlayerInfo();
                 Console.WriteLine($"{NPCName} : 어서오렴 오늘은 쉬겠니??");
-                Console.WriteLine("1. 쉰다\n2. 나간다");
-                int inputNum = int.Parse(Console.ReadLine());
+                Console.WriteLine("1. 쉰다\n2. 장비를 바꾼다\n3. 나간다");
+                bool isCorrect = int.TryParse(Console.ReadLine(), out int inputNum);
+                if(isCorrect == false)
+                {
+                    continue;
+                }
                 if (inputNum == 1)
                 {
                     Console.WriteLine("침대에서 잠을 잤다");
@@ -31,6 +37,10 @@ namespace Console_Project
 
                 }
                 else if (inputNum == 2)
+                {
+                    player.EquipmentSet();
+                }
+                else if (inputNum == 3)
                 {
                     Console.WriteLine("잘 갔다오렴");
                     break;

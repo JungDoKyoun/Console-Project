@@ -10,16 +10,18 @@ namespace Console_Project
     internal class BattleSystem
     {
         bool isRun = false;
+        bool isEnd = false;
+        ConsoleKeyInfo myKey = new ConsoleKeyInfo();
         
-        public void NomalMonsterBattle(Player player, MonsterManager monster, Map map)
+        public void NomalMonsterBattle(Player player, MonsterManager monster, Map map, int x, int y)
         {
             while(true)
             {
                 Console.Clear();
                 player.PrintBattlePlayerInfo();
                 Console.WriteLine();
-                monster.PrintBattleMonsterInfo(map);
-                PlayerChooseAttack(player, monster.ReturnMonster(map));
+                monster.PrintBattleMonsterInfo(map, x, y);
+                PlayerChooseAttack(player, monster.ReturnMonster(map, x, y));
                 if(isRun == true)
                 {
                     isRun = false;
@@ -27,21 +29,45 @@ namespace Console_Project
                     Console.Clear();
                     break;
                 }
-                else if(monster.ReturnMonster(map).MonsterHP == 0 || monster.ReturnMonster(map).MonsterHP < 0)
+                else if(monster.ReturnMonster(map, x, y).MonsterHP == 0 || monster.ReturnMonster(map, x, y).MonsterHP < 0)
                 {
-                    NomalMonsterBattleWin(player, monster.ReturnMonster(map));
-                    monster.FirstMapNomalMonster.Remove(monster.ReturnMonster(map));
-                    map.TileTypes[monster.ReturnMonster(map).MonsterPosX, monster.ReturnMonster(map).MonsterPosY] = Map.TileType.Empty;
-                    monster.RezenMonster(map);
                     Thread.Sleep(1000);
                     Console.Clear();
-                    break;
+                    NomalMonsterBattleWin(player, monster.ReturnMonster(map, x, y));
+                    map.TileTypes[monster.ReturnMonster(map, x, y).MonsterPosX, monster.ReturnMonster(map, x, y).MonsterPosY] = Map.TileType.Empty;
+                    if(monster.ReturnMonster(map, x, y).MonsterPosX < 9)
+                    {
+                        MonsterManager._firstMapNomalMonsterCount--;
+                        monster.RezenMonster(map);
+                    }
 
+                    else if (monster.ReturnMonster(map, x, y).MonsterPosX > 9)
+                    {
+                        MonsterManager._secondMapNomalMonsterCount--;
+                        monster.RezenMonster(map);
+                    }
+                    monster.FirstMapNomalMonster.Remove(monster.ReturnMonster(map, x, y));
+                    while(true)
+                    { 
+                        myKey = Console.ReadKey();
+                        if(myKey.Key == ConsoleKey.Enter)
+                        {
+                            isEnd = true;
+                            Console.Clear();
+                            break;
+                        }
+                    }
+                if(isEnd == true)
+                {
+                    isEnd = false;
+                    break;
+                }
+                    
                 }
                 Thread.Sleep(1000);
                 Console.Clear();
 
-                NomalMonsterAttackPlayer(player, monster.ReturnMonster(map));
+                NomalMonsterAttackPlayer(player, monster.ReturnMonster(map, x, y));
                 if(PlayerLoss(player) == true)
                 {
                     Console.WriteLine("당신은 죽었습니다");
@@ -61,6 +87,7 @@ namespace Console_Project
                 Console.WriteLine();
                 monster.PrintBattleBossMonsterInfo();
                 PlayerChooseAttack(player, monster.ReturnBossMonster());
+                
                 if (isRun == true)
                 {
                     Thread.Sleep(1000);
@@ -69,12 +96,25 @@ namespace Console_Project
                 }
                 else if (monster.ReturnBossMonster().MonsterHP == 0 || monster.ReturnBossMonster().MonsterHP < 0)
                 {
-                    BossMonsterBattleWin(player, monster.ReturnBossMonster());
-                    monster.FirstMapBossMonster.Remove(monster.ReturnBossMonster());
                     Thread.Sleep(1000);
                     Console.Clear();
+                    BossMonsterBattleWin(player, monster.ReturnBossMonster());
+                    monster.FirstMapBossMonster.Remove(monster.ReturnBossMonster());
+                    while (true)
+                    {
+                        myKey = Console.ReadKey();
+                        if (myKey.Key == ConsoleKey.Enter)
+                        {
+                            isEnd = true;
+                            Console.Clear();
+                            break;
+                        }
+                    }
+                }
+                if (isEnd == true)
+                {
+                    isEnd = false;
                     break;
-
                 }
                 Thread.Sleep(1000);
                 Console.Clear();
@@ -119,14 +159,16 @@ namespace Console_Project
                     int Num = random.Next(0, 2);
                     if (Num == 0)
                     {
+                        Console.Clear();
                         Console.WriteLine("도망에 성공했습니다");
                         isRun = true;
                         break;
                     }
                     else
                     {
+                        Console.Clear();
                         Console.WriteLine("도망에 실패했습니다");
-                        break;
+                        continue;
                     }
                 }
                 else
@@ -164,18 +206,40 @@ namespace Console_Project
                 }
                 else if (inputNum == 1 && player.PlayerSkills[0] != null)
                 {
-                    player.PlayerSkills[0].SkillAttack(player, monster);
-                    break;
+                    if(player.MP >= player.PlayerSkills[0].SkillMP)
+                    {
+                        player.PlayerSkills[0].SkillAttack(player, monster);
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("마나가 모자랍니다");
+                    }
+                    
                 }
                 else if (inputNum == 2 && player.PlayerSkills[1] != null)
                 {
-                    player.PlayerSkills[1].SkillAttack(player, monster);
-                    break;
+                    if (player.MP >= player.PlayerSkills[1].SkillMP)
+                    {
+                        player.PlayerSkills[1].SkillAttack(player, monster);
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("마나가 모자랍니다");
+                    }
                 }
                 else if (inputNum == 3 && player.PlayerSkills[2] != null)
                 {
-                    player.PlayerSkills[2].SkillAttack(player, monster);
-                    break;
+                    if (player.MP >= player.PlayerSkills[2].SkillMP)
+                    {
+                        player.PlayerSkills[2].SkillAttack(player, monster);
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("마나가 모자랍니다");
+                    }
                 }
                 
             }
@@ -197,7 +261,10 @@ namespace Console_Project
                 player.PlayerMoney += monster.MonsterGiveMoney;
                 Console.WriteLine($"{monster.MonsterName}과의 싸움에서 승리하였습니다!!");
                 Console.WriteLine($"{monster.MonsterGiveExp}만큼의 경험치와 {monster.MonsterGiveMoney}만큼의 돈을 획득하였습니다");
-                
+                player.PlayerLveleUp();
+                Console.WriteLine($"현재 레벨 : {player.PlayerLevel}\t현재 경험치 : {player.PlayerExp}\t현재 돈 : {player.PlayerMoney}");
+                Console.WriteLine("엔터를 누르면 진행됩니다");
+
             }
         }
         public void BossMonsterBattleWin(Player player, Monster monster)
@@ -210,6 +277,7 @@ namespace Console_Project
                 player.PlayerMoney += monster.MonsterGiveMoney;
                 Console.WriteLine($"{monster.MonsterName}과의 싸움에서 승리하였습니다!!");
                 Console.WriteLine($"{monster.MonsterGiveExp}만큼의 경험치와 {monster.MonsterGiveMoney}만큼의 돈을 획득하였습니다");
+                Console.WriteLine("엔터를 누르면 진행됩니다");
 
             }
         }
@@ -220,8 +288,15 @@ namespace Console_Project
             int Num = random.Next(0, 4);
             if(Num == 0)
             {
-                Console.WriteLine("파이어볼 사용");
-                monster.BossSkill[0].SkillAttack(player, monster.ReturnBossMonster());
+                if (monster.FirstMapBossMonster[0].MonsterMP >= monster.BossSkill[0].SkillMP)
+                {
+                    Console.WriteLine("파이어볼 사용");
+                    monster.BossSkill[0].SkillAttack(player, monster.ReturnBossMonster());
+                }
+                else
+                {
+                    NomalMonsterAttackPlayer(player, monster.ReturnBossMonster());
+                }
             }
             else
             {
