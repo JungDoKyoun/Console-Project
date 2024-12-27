@@ -30,7 +30,7 @@ namespace Console_Project
             monster.SetMonster(map);
             while (true)
             {
-                
+                Console.Title = "우리 마을 앞에 고블린 부락이 생겼다";
                 Console.WriteLine("게임을 시작 하려면 1번키, 종료하려면 0번 키를 누르세요");
                 bool isStart = int.TryParse(Console.ReadLine(), out int inputNum);
                 
