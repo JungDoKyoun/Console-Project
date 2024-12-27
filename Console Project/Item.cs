@@ -8,7 +8,7 @@ namespace Console_Project
 {
     enum ItemType
     {
-        Weapon, Armor, Usable
+        Weapon, Armor, UsableHP, UsableMP
     }
     internal class Item
     {

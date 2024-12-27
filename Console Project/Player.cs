@@ -2,16 +2,13 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Console_Project
 {
-    enum PlayerSkill
-    {
-        Blow, 
-    }
     internal class Player
     {
         public string Name { get; set; }
@@ -21,18 +18,20 @@ namespace Console_Project
         public int MP { get; set; }
         public int Damage { get; set; }
         public int DefensivePower { get; set; }
-        public PlayerSkill PlayerSkill { get; set; }
         public int PlayerMoney { get; set; }
 
         public int PlayerPosX { get; set; }
         public int PlayerPosY { get; set; }
+        public bool IsHome{ get; set; }
         List<Item> inven;
         Item[] _weaponItem = new Item[1];
         Item[] _armorItem = new Item[1];
+        public List<Skill> PlayerSkills { get;  set; }
         ConsoleKeyInfo myKey;
 
         public Player(int hp, int mp, int damage, int defensivePower)
         {
+            Name = "한스";
             PlayerLevel = 1;
             PlayerExp = 0;
             HP = hp;
@@ -47,7 +46,7 @@ namespace Console_Project
         public void SetPlayerPos()
         {
             PlayerPosX = 1;
-            PlayerPosY = 1;
+            PlayerPosY = 2;
         }
         public void CreateInven()
         {
@@ -74,7 +73,11 @@ namespace Console_Project
                 {
                     Console.WriteLine($"[{i + 1}]. 이름: {inven[i].ItemName}\t방어력: {inven[i].ItemEffect}\t아이템 가격 : {inven[i].ItemPrice}\t아이템 종류: 방어구");
                 }
-                if (inven[i].ItemType == ItemType.Usable)
+                if (inven[i].ItemType == ItemType.UsableHP)
+                {
+                    Console.WriteLine($"[{i + 1}]. 이름: {inven[i].ItemName}\t회복력: {inven[i].ItemEffect}\t아이템 가격 : {inven[i].ItemPrice}\t아이템 종류: 물약");
+                }
+                if (inven[i].ItemType == ItemType.UsableMP)
                 {
                     Console.WriteLine($"[{i + 1}]. 이름: {inven[i].ItemName}\t회복력: {inven[i].ItemEffect}\t아이템 가격 : {inven[i].ItemPrice}\t아이템 종류: 물약");
                 }
@@ -104,9 +107,13 @@ namespace Console_Project
                 {
                     Console.WriteLine($"[{i + 1}]. 이름: {inven[i].ItemName}\t방어력: {inven[i].ItemEffect}\t아이템 가격 : {inven[i].ItemPrice / 2}\t아이템 종류: 방어구");
                 }
-                if (inven[i].ItemType == ItemType.Usable)
+                if (inven[i].ItemType == ItemType.UsableHP)
                 {
                     Console.WriteLine($"[{i + 1}]. 이름: {inven[i].ItemName}\t회복력: {inven[i].ItemEffect}\t아이템 가격 : {inven[i].ItemPrice / 2}\t아이템 종류: 물약");
+                }
+                if (inven[i].ItemType == ItemType.UsableMP)
+                {
+                    Console.WriteLine($"[{i + 1}]. 이름: {inven[i].ItemName}\t회복력: {inven[i].ItemEffect}\t아이템 가격 : {inven[i].ItemPrice}\t아이템 종류: 물약");
                 }
             }
             Console.WriteLine();
@@ -201,7 +208,8 @@ namespace Console_Project
 
         public void EquipmentSet()
         {
-            while(true)
+            Console.Clear();
+            while (true)
             {
                 Console.WriteLine("할 행동을 선택하여 주세요");
                 Console.WriteLine("--------------------------------------");
@@ -302,29 +310,242 @@ namespace Console_Project
                 Thread.Sleep(1000);
                 Console.Clear();
             }
+            Console.Clear();
+        }
+
+        public void CreatePlayerSkillSlot()
+        {
+            PlayerSkills = new List<Skill>();
         }
 
         public void PlayerLveleUp()
         {
-            Console.WriteLine("레벨업!!");
             if(PlayerExp == 100)
             {
+                Console.WriteLine("레벨업!!");
                 PlayerLevel++;
                 PlayerExp = 0;
+                HP = 100;
+                MP = 100;
+                Damage += 10;
+                DefensivePower += 5;
             }
             else if(PlayerExp > 100)
             {
+                Console.WriteLine("레벨업!!");
                 int rest = PlayerExp - 100;
                 PlayerLevel++;
                 PlayerExp = 0 + rest;
+                HP = 100;
+                MP = 100;
+                Damage += 10;
+                DefensivePower += 5;
             }
-            HP = 100;
-            MP = 100;
-            Damage += 10;
-            DefensivePower += 5;
+            if(PlayerLevel == 5)
+            {
+                PlayerSkills.Add(new SkillSmite("강타", "공격력 + 10만큼의 데미지를 준다", Damage + 10, 5));
+            }
+            else if(PlayerLevel == 15)
+            {
+                PlayerSkills.Add(new SkillTrippleSlash("트리플 슬래쉬", "공격력 + 20만큼의 데미지를 준다", Damage + 20, 10));
+            }
+            else if(PlayerLevel == 25)
+            {
+                PlayerSkills.Add(new SkillHolySmite("신성 강타", "공격력 두배 만큼의 데미지를 준다", Damage * 2, 20));
+            }
         }
 
+        public void UseUsableItem()
+        {
+            List<Item> usableitem = new List<Item>();
+            for(int i = 0; i < inven.Count; i++)
+            {
+                if (inven[i].ItemType == ItemType.UsableHP || inven[i].ItemType == ItemType.UsableMP)
+                {
+                    usableitem.Add(inven[i]);
+                }
+            }
+            if(usableitem.Count == 0)
+            {
+                Console.WriteLine("사용할 수 있는 아이템이 없습니다");
+                
+            }
+            else if(usableitem.Count != 0)
+            {
+                Console.WriteLine("사용할 아이템을 선택하세요");
+                for (int i = 0; i < usableitem.Count; i++)
+                {
+                    Console.WriteLine($"[{i + 1}]. {usableitem[i].ItemName}\t회복량 : {usableitem[i].ItemEffect}\t가격 : {usableitem[i].ItemPrice}");
+                }
+                bool isCorrect = int.TryParse(Console.ReadLine(), out int inputNum);
+                if (usableitem[inputNum] != null)
+                {
+                    if (usableitem[inputNum].ItemType == ItemType.UsableHP)
+                    {
+                        HP += usableitem[inputNum].ItemEffect;
+                        Console.WriteLine($"HP가 {usableitem[inputNum].ItemEffect}만큼 회복되었습니다");
+                    }
+                    else if (usableitem[inputNum].ItemType == ItemType.UsableMP)
+                    {
+                        MP += usableitem[inputNum].ItemEffect;
+                        Console.WriteLine($"MP가 {usableitem[inputNum].ItemEffect}만큼 회복되었습니다");
+                    }
+                }
+            }
+            
+            
+        }
+        public void MoveForward(Map map, BattleSystem battleSystem, MonsterManager monster, Player player)
+        {
+            if (map.TileTypes[PlayerPosX, PlayerPosY + 1] == Map.TileType.Wall)
+            {
+                PlayerPosX = PlayerPosX;
+                PlayerPosY = PlayerPosY;
+            }
+            else if(map.TileTypes[PlayerPosX, PlayerPosY + 1] == Map.TileType.Empty)
+            {
+                map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Empty;
+                PlayerPosY++;
+                map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Player;
+            }
+            else if(map.TileTypes[PlayerPosX, PlayerPosY + 1] == Map.TileType.Monster)
+            {
+                battleSystem.NomalMonsterBattle(player, monster, map, PlayerPosX, PlayerPosY + 1);
+            }
+            else if (map.TileTypes[PlayerPosX, PlayerPosY + 1] == Map.TileType.BossMonster)
+            {
+                battleSystem.BossMonsterBattle(player, monster);
+            }
+            else if (map.TileTypes[PlayerPosX, PlayerPosY + 1] == Map.TileType.Menu)
+            {
+                IsHome = map.Menus();
+            }
+        }
 
+        public void MoveBackward(Map map, BattleSystem battleSystem, MonsterManager monster, Player player)
+        {
+            if (map.TileTypes[PlayerPosX, PlayerPosY - 1] == Map.TileType.Wall)
+            {
+                PlayerPosX = PlayerPosX;
+                PlayerPosY = PlayerPosY;
+            }
+            else if (map.TileTypes[PlayerPosX, PlayerPosY - 1] == Map.TileType.Empty)
+            {
+                map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Empty;
+                PlayerPosY--;
+                map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Player;
+            }
+            else if (map.TileTypes[PlayerPosX, PlayerPosY - 1] == Map.TileType.Monster)
+            {
+                battleSystem.NomalMonsterBattle(player, monster, map, PlayerPosX, PlayerPosY - 1);
+            }
+            else if (map.TileTypes[PlayerPosX, PlayerPosY - 1] == Map.TileType.BossMonster)
+            {
+                battleSystem.BossMonsterBattle(player, monster);
+            }
+            else if (map.TileTypes[PlayerPosX, PlayerPosY - 1] == Map.TileType.Menu)
+            {
+                IsHome = map.Menus();
+            }
+        }
 
+        public void MoveRight(Map map, BattleSystem battleSystem, MonsterManager monster, Player player)
+        {
+            if (map.TileTypes[PlayerPosX + 1, PlayerPosY] == Map.TileType.Wall)
+            {
+                PlayerPosX = PlayerPosX;
+                PlayerPosY = PlayerPosY;
+            }
+            else if (map.TileTypes[PlayerPosX + 1, PlayerPosY] == Map.TileType.Empty)
+            {
+                map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Empty;
+                PlayerPosX++;
+                map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Player;
+            }
+            else if (map.TileTypes[PlayerPosX + 1, PlayerPosY] == Map.TileType.Monster)
+            {
+                battleSystem.NomalMonsterBattle(player, monster, map, PlayerPosX + 1, PlayerPosY);
+            }
+            else if (map.TileTypes[PlayerPosX + 1, PlayerPosY] == Map.TileType.BossMonster)
+            {
+                battleSystem.BossMonsterBattle(player, monster);
+            }
+            else if (map.TileTypes[PlayerPosX + 1, PlayerPosY] == Map.TileType.Menu)
+            {
+                IsHome = map.Menus();
+            }
+        }
+
+        public void MoveLeft(Map map, BattleSystem battleSystem, MonsterManager monster, Player player)
+        {
+            if (map.TileTypes[PlayerPosX - 1, PlayerPosY] == Map.TileType.Wall)
+            {
+                PlayerPosX = PlayerPosX;
+                PlayerPosY = PlayerPosY;
+            }
+            else if (map.TileTypes[PlayerPosX - 1, PlayerPosY] == Map.TileType.Empty)
+            {
+                map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Empty;
+                PlayerPosX--;
+                map.TileTypes[PlayerPosX, PlayerPosY] = Map.TileType.Player;
+            }
+            else if (map.TileTypes[PlayerPosX - 1, PlayerPosY] == Map.TileType.Monster)
+            {
+                battleSystem.NomalMonsterBattle(player, monster, map, PlayerPosX - 1, PlayerPosY);
+                
+            }
+            else if (map.TileTypes[PlayerPosX - 1, PlayerPosY] == Map.TileType.BossMonster)
+            {
+                battleSystem.BossMonsterBattle(player, monster);
+
+            }
+            else if (map.TileTypes[PlayerPosX - 1, PlayerPosY] == Map.TileType.Menu)
+            {
+                IsHome = map.Menus();
+            }
+        }
+
+        
+
+        public void PrintBattlePlayerInfo()
+        {
+            Console.WriteLine("플레이어 상태창");
+            Console.WriteLine("--------------------------------------");
+            Console.WriteLine($"플레이어 HP : {HP}\t 플레이어 MP : {MP}");
+            Console.WriteLine("--------------------------------------");
+        }
+
+        public void PrintPlayerSimpleInfo()
+        {
+            Console.WriteLine("플레이어의 상태");
+            Console.WriteLine("--------------------------------------");
+            Console.WriteLine($"플레이어 이름 : {Name}\t 플레이어 레벨 : {PlayerLevel}\t플레이어 경험치 : {PlayerExp}");
+            Console.WriteLine($"플레이어 HP : {HP}\t플레이어 MP : {MP}\t플레이어 돈 : {PlayerMoney}");
+            Console.WriteLine($"플레이어 공격력 : {Damage}\t플레이어 방어력 : {DefensivePower}");
+            Console.WriteLine("--------------------------------------");
+        }
+
+        public void PrintPlayerInfo()
+        {
+            Console.WriteLine("플레이어의 상태");
+            Console.WriteLine("--------------------------------------");
+            Console.WriteLine($"플레이어 이름 : {Name}\t 플레이어 레벨 : {PlayerLevel}\t플레이어 경험치 : {PlayerExp}");
+            Console.WriteLine($"플레이어 HP : {HP}\t플레이어 MP : {MP}\t플레이어 돈 : {PlayerMoney}");
+            Console.WriteLine($"플레이어 공격력 : {Damage}\t플레이어 방어력 : {DefensivePower}");
+            Console.WriteLine("--------------------------------------");
+            ShowPlayerInven();
+            PrintPlayerSkill();
+        }
+
+        public void PrintPlayerSkill()
+        {
+            Console.WriteLine("플레이어 스킬창");
+            Console.WriteLine("--------------------------------------");
+            for(int i = 0; i < PlayerSkills.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {PlayerSkills[i].SkillName}  {PlayerSkills[i].SkillDescription}  데미지 : {PlayerSkills[i].SkillDamage}  소모MP : {PlayerSkills[i].SkillMP}");
+            }
+            Console.WriteLine("--------------------------------------");
+        }
     }
 }
