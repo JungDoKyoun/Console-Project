@@ -23,7 +23,9 @@ namespace Console_Project
         public int PlayerPosX { get; set; }
         public int PlayerPosY { get; set; }
         public bool IsHome{ get; set; }
-        List<Item> inven;
+        public int MaxHp { get; set; }
+        public int MaxMp { get; set; }
+        List<Item> inven { get; set; }
         Item[] _weaponItem = new Item[1];
         Item[] _armorItem = new Item[1];
         public List<Skill> PlayerSkills { get;  set; }
@@ -32,9 +34,11 @@ namespace Console_Project
         public Player(int hp, int mp, int damage, int defensivePower)
         {
             Name = "한스";
-            PlayerLevel = 1;
-            PlayerExp = 0;
+            PlayerLevel = 4;
+            PlayerExp = 99;
+            MaxHp = 100;
             HP = hp;
+            MaxMp = 100;
             MP = mp;
             Damage = damage;
             DefensivePower = defensivePower;
@@ -133,9 +137,10 @@ namespace Console_Project
             inven.Add(item);
         }
 
-        public void SellItem(Item item)
+        public void SellItem(int inputNum)
         {
-            inven.Remove(item);
+            PlayerMoney += inven[inputNum - 1].ItemPrice;
+            inven.Remove(inven[inputNum - 1]);
         }
 
         public void Equipment(Item item)
@@ -325,8 +330,8 @@ namespace Console_Project
                 Console.WriteLine("레벨업!!");
                 PlayerLevel++;
                 PlayerExp = 0;
-                HP = 100;
-                MP = 100;
+                HP = MaxHp;
+                MP = MaxMp;
                 Damage += 10;
                 DefensivePower += 1;
                 if (PlayerLevel == 5)
@@ -351,8 +356,8 @@ namespace Console_Project
                 int rest = PlayerExp - 100;
                 PlayerLevel++;
                 PlayerExp = 0 + rest;
-                HP = 100;
-                MP = 100;
+                HP = MaxHp;
+                MP = MaxMp;
                 Damage += 10;
                 DefensivePower += 1;
                 if (PlayerLevel == 5)
@@ -396,25 +401,25 @@ namespace Console_Project
                     Console.WriteLine($"[{i + 1}]. {usableitem[i].ItemName}\t회복량 : {usableitem[i].ItemEffect}\t가격 : {usableitem[i].ItemPrice}");
                 }
                 bool isCorrect = int.TryParse(Console.ReadLine(), out int inputNum);
-                if (usableitem[inputNum] != null)
+                if (usableitem[inputNum - 1] != null)
                 {
-                    if (usableitem[inputNum].ItemType == ItemType.UsableHP)
+                    if (usableitem[inputNum - 1].ItemType == ItemType.UsableHP)
                     {
-                        HP += usableitem[inputNum].ItemEffect;
+                        HP += usableitem[inputNum - 1].ItemEffect;
                         if(HP > 100)
                         {
                             HP = 100;
                         }
-                        Console.WriteLine($"HP가 {usableitem[inputNum].ItemEffect}만큼 회복되었습니다");
+                        Console.WriteLine($"HP가 {usableitem[inputNum - 1].ItemEffect}만큼 회복되었습니다");
                     }
-                    else if (usableitem[inputNum].ItemType == ItemType.UsableMP)
+                    else if (usableitem[inputNum - 1].ItemType == ItemType.UsableMP)
                     {
-                        MP += usableitem[inputNum].ItemEffect;
+                        MP += usableitem[inputNum - 1].ItemEffect;
                         if (MP > 100)
                         {
                             MP = 100;
                         }
-                        Console.WriteLine($"MP가 {usableitem[inputNum].ItemEffect}만큼 회복되었습니다");
+                        Console.WriteLine($"MP가 {usableitem[inputNum - 1].ItemEffect}만큼 회복되었습니다");
                     }
                 }
             }
@@ -553,14 +558,39 @@ namespace Console_Project
 
         public void PrintPlayerInfo()
         {
-            Console.WriteLine("플레이어의 상태");
-            Console.WriteLine("--------------------------------------");
-            Console.WriteLine($"플레이어 이름 : {Name}\t 플레이어 레벨 : {PlayerLevel}\t플레이어 경험치 : {PlayerExp}");
-            Console.WriteLine($"플레이어 HP : {HP}\t플레이어 MP : {MP}\t플레이어 돈 : {PlayerMoney}");
-            Console.WriteLine($"플레이어 공격력 : {Damage}\t플레이어 방어력 : {DefensivePower}");
-            Console.WriteLine("--------------------------------------");
-            ShowPlayerInven();
-            PrintPlayerSkill();
+           
+                Console.WriteLine("플레이어의 상태");
+                Console.WriteLine("--------------------------------------");
+                Console.WriteLine($"플레이어 이름 : {Name}\t 플레이어 레벨 : {PlayerLevel}\t플레이어 경험치 : {PlayerExp}");
+                Console.WriteLine($"플레이어 HP : {HP}\t플레이어 MP : {MP}\t플레이어 돈 : {PlayerMoney}");
+                Console.WriteLine($"플레이어 공격력 : {Damage}\t플레이어 방어력 : {DefensivePower}");
+                Console.WriteLine("--------------------------------------");
+                ShowPlayerInven();
+                PrintPlayerSkill();
+                
+        }
+        public void PrintBattleMapPlayerInfo()
+        {
+            while(true)
+            {
+                Console.WriteLine("플레이어의 상태");
+                Console.WriteLine("--------------------------------------");
+                Console.WriteLine($"플레이어 이름 : {Name}\t 플레이어 레벨 : {PlayerLevel}\t플레이어 경험치 : {PlayerExp}");
+                Console.WriteLine($"플레이어 HP : {HP}\t플레이어 MP : {MP}\t플레이어 돈 : {PlayerMoney}");
+                Console.WriteLine($"플레이어 공격력 : {Damage}\t플레이어 방어력 : {DefensivePower}");
+                Console.WriteLine("--------------------------------------");
+                ShowPlayerInven();
+                PrintPlayerSkill();
+                Console.WriteLine("0번을 누르면 맵으로 나감");
+
+                myKey = Console.ReadKey(true);
+
+                if (myKey.Key == ConsoleKey.D0 || myKey.Key == ConsoleKey.NumPad0)
+                {
+                    Console.Clear();
+                    break;
+                }
+            }
         }
 
         public void PrintPlayerSkill()

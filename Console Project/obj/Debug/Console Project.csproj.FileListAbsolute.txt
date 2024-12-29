@@ -5,3 +5,10 @@ C:\Users\KGA\Desktop\콘솔 프로젝트\Console-Project\Console Project\obj\Deb
 C:\Users\KGA\Desktop\콘솔 프로젝트\Console-Project\Console Project\obj\Debug\Console Project.csproj.CoreCompileInputs.cache
 C:\Users\KGA\Desktop\콘솔 프로젝트\Console-Project\Console Project\obj\Debug\Console Project.exe
 C:\Users\KGA\Desktop\콘솔 프로젝트\Console-Project\Console Project\obj\Debug\Console Project.pdb
+C:\Users\kyous\OneDrive\바탕 화면\Console-Project-main\Console-Project-main\Console Project\bin\Debug\Console Project.exe.config
+C:\Users\kyous\OneDrive\바탕 화면\Console-Project-main\Console-Project-main\Console Project\bin\Debug\Console Project.exe
+C:\Users\kyous\OneDrive\바탕 화면\Console-Project-main\Console-Project-main\Console Project\bin\Debug\Console Project.pdb
+C:\Users\kyous\OneDrive\바탕 화면\Console-Project-main\Console-Project-main\Console Project\obj\Debug\Console Project.csproj.AssemblyReference.cache
+C:\Users\kyous\OneDrive\바탕 화면\Console-Project-main\Console-Project-main\Console Project\obj\Debug\Console Project.csproj.CoreCompileInputs.cache
+C:\Users\kyous\OneDrive\바탕 화면\Console-Project-main\Console-Project-main\Console Project\obj\Debug\Console Project.exe
+C:\Users\kyous\OneDrive\바탕 화면\Console-Project-main\Console-Project-main\Console Project\obj\Debug\Console Project.pdb

@@ -198,7 +198,7 @@ namespace Console_Project
                     {
                         Console.Clear();
                         Console.WriteLine("도망에 실패했습니다");
-                        continue;
+                        break;
                     }
                 }
                 else

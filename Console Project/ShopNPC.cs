@@ -127,8 +127,7 @@ namespace Console_Project
                     }
                     else
                     {
-                        player.SellItem(ShopItems[inputNum - 1]);
-                        player.PlayerMoney += ShopItems[inputNum - 1].ItemPrice / 2;
+                        player.SellItem(inputNum);
                         Console.WriteLine($"남은 돈 : {player.PlayerMoney}");
                     }
                 }

@@ -30,8 +30,8 @@ namespace Console_Project
                 {
                     Console.WriteLine("침대에서 잠을 잤다");
                     Console.WriteLine("체력및 마나 전부 회복");
-                    player.HP += 100;
-                    player.MP += 100;
+                    player.HP = player.MaxMp;
+                    player.MP = player.MaxMp;
                     Thread.Sleep(1000);
                     Console.Clear();
 

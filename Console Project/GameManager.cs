@@ -12,7 +12,7 @@ namespace Console_Project
         public void StartGame()
         {
             Console.SetWindowSize(100, 35);
-            Player player = new Player(100, 100, 200, 5);
+            Player player = new Player(1, 100, 200, 5);
             Map map = new Map();
             MonsterManager monster = new MonsterManager();
             ShopNPC shopNPC = new ShopNPC();
@@ -137,7 +137,7 @@ namespace Console_Project
                                     else if (myKey.Key == ConsoleKey.C)
                                     {
                                         Console.Clear();
-                                        player.PrintPlayerInfo();
+                                        player.PrintBattleMapPlayerInfo();
                                     }
                                 }
                                 if (battleSystem.PlayerLoss(player) == true)
